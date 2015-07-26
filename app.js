@@ -2,9 +2,7 @@
 var express = require('express'),
   app = express(),
   server = require('http').createServer(app),
-
-
-var port = process.env.PORT || 7114,
+  port = process.env.PORT || 7114;
 
 server.listen(port, function () {
   console.log('Pages served on port %d', port);
