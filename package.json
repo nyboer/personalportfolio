@@ -1,0 +1,28 @@
+{
+  "name": "personalportfolio",
+  "version": "1.0.0",
+  "description": "Documentation code, art, and work",
+  "main": "app.js",
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "express": "^4.13.1",
+    "bootstrap": "^3.3.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nyboer/personalportfolio.git"
+  },
+  "keywords": [
+    "nyboer"
+  ],
+  "author": "Peter Nyboer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyboer/personalportfolio/issues"
+  },
+  "homepage": "https://github.com/nyboer/personalportfolio"
+}
