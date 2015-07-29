@@ -14,19 +14,6 @@ $.getJSON('js/projects.json', function(p) {
 
 //because project buttons are added dynamically, we use on instead of click
   //click on thumbnail
-/*$(document).on('click','.tn',function(e){
-  $('.tn').each(function(){
-    $( this ).removeClass('on');
-  });
-  $( this ).addClass('on');
-  var mainsrc = $(this).attr('src').replace('tn', 'main'); 
-  var img_id = $(this).attr('src').split('_tn')[1];
-  
-  console.log('main source img: '+mainsrc+ 'id: '+img_id);
-  //replace main image:
-  renderMain(mainsrc);
-});
-*/
 $(document).on('click','.thumb',function(e){
   var thisid = $(this).attr('id');
   var sel = '#'+thisid+' > img';
@@ -83,15 +70,24 @@ function renderProject(pname){
 //load the main image from thumbnail click:
 function renderMain(img_id){
   var imsrc = proj[currentproject].mains[img_id];
-  $('#mainImage').attr('src', imsrc);
+  $('#mainImage').fadeTo(200,0, function() {
+      $(this).attr('src',imsrc);
+  }).fadeTo(200,1);
+//   $('#mainImage').attr('src', imsrc);
 }
 
 function renderText(){
   var text = proj[currentproject].projectText;
-  $('#projectText').html(text);
+  $('#projectText').fadeTo(200,0, function() {
+      $(this).html(text);
+  }).fadeTo(200,1);
+  //$('#projectText').html(text);
 }
 function renderTitle(text){
-  $('#projectTitle').html(text);
+  $('#projectTitle').fadeTo(200,0, function() {
+      $(this).html(text);
+  }).fadeTo(200,1);
+//  $('#projectTitle').html(text);
 }
 
 //create the projects row content based on database
