@@ -2,7 +2,7 @@
 var express = require('express'),
   app = express(),
   server = require('http').createServer(app),
-  port = process.env.PORT || 7114;
+  port =  process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 7114;
 
 server.listen(port, function () {
   console.log('Pages served on port %d', port);
