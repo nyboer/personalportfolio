@@ -9,6 +9,7 @@ a,
 a:focus,
 a:hover {
   color: #fff;
+  text-decoration: none;
 }
 
 /* Custom default button */
@@ -27,16 +28,18 @@ a:hover {
  */
 
 html,
+
 body {
   height: 100%;
   background-color: #333;
-  font-size: 1em;
+  font-size: 16px;
+  font-family: 'Arvo', 'Helvetica Neue','Helvetica',sans-serif;
 }
 body {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
-  background-image: url('../img/aframes_lg.jpg');
+  /*background-image: url('../img/aframes_lg.jpg');*/
   background-size: auto;
 }
 .bog{
@@ -71,12 +74,22 @@ body {
 .tn {
   width: 90px;
   height: 90px;
-  padding: 5px;
+  cursor: pointer;
+  border: 5px solid rgba(0,0,0,1);
 }
-.thumb {
+.thumbnum{
+  font-weight: bold;
+  vertical-align: bottom;
+}
+#thumbs {
+  position: relative;
+  top: -40px;
+}
 
-}
 .on {
+  opacity: 1;
+}
+.off {
   opacity: 0.5;
 }
 
@@ -85,44 +98,88 @@ body {
   padding: 5px 0 5px 0;
   border: 5px solid rgba(0,0,0,0.3);
   max-width: 200px;
+  cursor: pointer;
+}
+/*paged same as page, but named differently for exclusion from click functions. yes, kludge:*/
+.paged {
+  background-color: rgba(255,255,255,0.2);
+  padding: 5px 0 5px 0;
+  border: 5px solid rgba(0,0,0,0.3);
+  max-width: 200px;
+  cursor: pointer;
 }
 .detail {
-  background-color: rgba(0,0,0,0.5);
-  border: 5px solid rgba(255,255,255,0.3);
+  /*background-color: rgba(0,0,0,0.5);*/
+  /*border: 5px solid rgba(255,255,255,0.3);*/
   max-width: 200px;
+  width: 12%;
+  float: left;
 }
-.story {
-  max-width: 720px;
+
+.thumb {
+  width: 15%;
+}
+
+.proj {
+  width: 12%;
+  float: left;
+}
+.project {
   background-color: rgba(0,0,0,0.5);
 }
 .mainimg {
-  width: 720px;
-  border: 1em solid rgba(0,0,0,0.5);
+  border: 16px solid rgba(0,0,0,0.5);
 }
-.caption {
+#mainImageContainer {
+  /*height: 520px;*/
+  width: 720px
+}
+
+.description {
   position: absolute;  
-  top: 0; 
-  padding: 1em 1.3em 0 1.3em;
-  max-width: 720px;
+  top: 10px; 
+  padding: 16px 20px 0 20px;
   text-align: left;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.0);
+  font-size: 18px;
+}
+.darken {
+  background-color: rgba(0,0,0,0.65);
+}
+.details {
+  position:relative;
+  top: -80px;
 }
 .title {
-  position: absolute;  
-  bottom: -10px; 
-  right: -10px;
-  padding: 0.2em 0.5em 0.2em 0.5em;
-  max-width: 720px;
+  /*bottom: -10px; */
+  /*right: -10px;*/
+  padding: 3px 8px 3px 8px;
   text-align: left;
-  background-color: rgba(0,0,0,0.7);
-  font-size: 30px;
-  border: 0.1em solid rgba(255,255,255,0.5);
+  font-size: 24px;
+  /*font-weight:bold;*/
+  border: 0.16px solid rgba(255,255,255,0.5);
+  font-family: 'Alfa Slab One', 'Helvetica Neue','Helvetica',sans-serif;
 }
+.descriptitle{
+  background-color: rgba(0,0,0,1);
+  padding: 3px;
+  display: inline-block;
+}
+.intro {
+  background-color: rgba(0,0,0,0.5);
+  font-size: 18px;
+  font-weight: normal;
+  font-style: italic; 
+  /*display: block;*/
+  padding: 5px;
+  color: rgb(232, 220, 141);
+}
+
 .padleft {
   padding-left: 15px;
 }
 .section {
-  margin-top: 1em;
+  margin-top: 16px;
 }
 
 /* Padding for spacing */
@@ -212,18 +269,27 @@ body {
     top: 0;
   }
   .mastfoot {
-    position: fixed;
-    bottom: 0;
+    /*position: fixed;
+    bottom: 0;*/
   }
   /* Start the vertical centering */
   .site-wrapper-inner {
-    vertical-align: middle;
+    /*vertical-align: middle;*/
   }
   /* Handle the widths */
   .masthead,
   .mastfoot,
   .cover-container {
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+  .description {
+    max-width: 720px;
+  }
+  .project {
+    width: 720px;
+  }
+  .mainimg {
+    width: 720px;
   }
 }
 
@@ -233,4 +299,14 @@ body {
   .cover-container {
     width: 90%;
   }
+  .description {
+    max-width: 900px;
+  }
+  .project {
+    width: 900px;
+  }
+  .mainimg {
+    width: 900px;
+  }
 }
+  

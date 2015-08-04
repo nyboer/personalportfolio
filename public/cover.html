@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=0.63">
+    
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
@@ -16,6 +17,19 @@
 
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
+    
+    <!-- typefaces -->
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet'  type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'  type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet'  type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'  type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet'  type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'  type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet'  type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet'  type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One' rel='stylesheet'  type='text/css'>
+    
   </head>
 
   <body>
@@ -40,59 +54,41 @@
           </div>
 -->
           <div class="inner cover">
-
-            <!--BEGIN PROJECT mainImage projectText tn_<n> -->
-            <div id="project">    
-              <div class="row ">
-                <div class="col-md-10">
-                  <div class="story">
-                    <img src="img/aframes_med.jpg" class="mainimg" id="mainImage">
-                    <div class="title" id="projectTitle">
-                    TITLE OF PROJECT
-                    </div>
-                    <div class="caption">
-                      <a role="button" data-toggle="collapse" href="#projectText" aria-expanded="true" aria-controls="projectText">
-                        <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
-                      </a>
-                      <div class="panel-collapse collapse in" id="projectText"  class="panel-collapse collapse in" role="tabpanel">
-                        description text
-                      </div>
-                    </div>
-                  </div>
+          <!--BEGIN PROJECT mainImage projectText tn_<n> -->
+          <div id="project" class="project">    
+              <div class="description">
+                <div class="descriptitle">
+                <a role="button" data-toggle="collapse"  data-target="#projectText" class="" id="descriptitle">
+<!--                   <span class="glyphicon glyphicon-chevron-up"></span> -->
+                  <span class="title" id="projectTitle">
+                    <!--TITLE OF PROJECT-->
+                  </span>                    
+                </a>
                 </div>
-                <div class="col-md-2 section" id="thumbs">
-                  <div class="detail" id="tn_00">details:</div>
-                  <div class="detail thumb" id="tn_01"><img src="img/tn_01.jpg" class="tn"></div>
-                  <div class="detail thumb" id="tn_02"><img src="img/tn_02.jpg" class="tn"></div>
-                  <div class="detail thumb" id="tn_03"><img src="img/tn_03.jpg" class="tn"></div>
-                  <div class="detail thumb" id="tn_04"><img src="img/tn_04.jpg" class="tn"></div>
+                <span class="intro" id="intro">
+                  <!--intro blurb-->
+                </span>
+                <a role="button" data-toggle="collapse"  data-target="#projectText" class="intro" id="descripmore"> (...more...)
+                </a> 
+                <div class="collapse" id="projectText" >
+                  <!--description text-->
                 </div>
               </div>
-            </div>
+              <div id="mainImageContainer">
+<!--           <img src="" class="mainimg" id="mainImage"> -->
+              </div>
+              <div class="" id="thumbs">
+<!--                     <div class="detail thumb" id="tn_01"><img src="img/tn_01.jpg" class="tn"></div> -->
+              </div>
+          </div>
             <!--END PROJECT-->
-            
-            <div class="row section padleft" id="projects">
-              <div class="col-md-1 page">projects:</div>
-              <div class="col-md-1 page">p1</div>
-              <div class="col-md-1 page">p2</div>
-              <div class="col-md-1 page">p3</div>
-              <div class="col-md-1 page">p4</div>
-              <div class="col-md-1 page">p5</div>
-              <div class="col-md-1 page">p6</div>
-              <div class="col-md-1 page">p7</div>
-              <div class="col-md-1 page">p8</div>
-              <div class="col-md-1 page">p9</div>
-              <div class="col-md-1 page">p10</div>
-              <div class="col-md-1 page">p11</div>
+            <div style="clear: both;"></div>
+            <div class="section" id="projects">              
+              <!--<div class="proj page">p1</div>-->
             </div>
-            
-            <!--
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">Learn more</a>
-            </p>
-            -->
           </div>
 
+          <div style="clear: both;"></div>
           <div class="mastfoot">
               <p>all contents copyright Peter Nyboer 2015</p>
           </div>
