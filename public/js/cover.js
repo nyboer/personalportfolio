@@ -19,6 +19,7 @@ $.getJSON('js/projects.json', function(p) {
   //click on thumbnail
 $(document).on('click','.thumb',function(e){
   var thisid = $(this).attr('id');
+  //select the child image in the div:
   var sel = '#'+thisid+' > img';
   //remove all instances of 'on' and 'off' classes, then add 'off' to all. then remove 'off' and add 'on' to the clicked element. weird, but works.
   $('.thumb').each(function(){
@@ -31,9 +32,12 @@ $(document).on('click','.thumb',function(e){
   $( sel ).addClass('on');
   //use thumbnail ID number to retrieve corresponding main image from proj object:
   var img_id = $(this).attr('id').split('_')[1];
-  
+   
   //replace main image:
-  renderMain(img_id);
+   renderMain(img_id);
+ 
+   //render text:
+ 
 });
 
   //click on project button
@@ -58,6 +62,7 @@ $(document).on('click','.page',function(e){
 var currentproject = "";
 
 function renderProject(pname){
+  var thumblabels = ["problem","solution","tech","watch"];
   currentproject = pname;
   console.log('rendering project '+pname);
   if(!textiscollapsed){
@@ -73,7 +78,7 @@ function renderProject(pname){
     thumbimg = proj[pname].thumbs[t];
     var id = 'tn_'+i;
     $('#thumbs').append('<div class="thumb detail" id="'+id+'"><img src="'+thumbimg+'" class="tn"></div>');
-    $('#'+id).prepend('<span class="thumbnum">'+(i+1)+'</span>');
+    $('#'+id).append('<span class="thumbnum">'+thumblabels[i]+'</span>');
     i++;
   };
   /*
@@ -95,6 +100,7 @@ function renderMain(img_id){
 	//crude but effective check to see if the source is a link to youtube or vimeo
 	var yout = imsrc.split("youtube.com").length;
 	var vim = imsrc.split("vimeo.com").length;
+	var qt = imsrc.split(".mov").length;
 	if(yout>1 || vim>1){
 	  //show the movie
 	  console.log('this is for a movie '+imsrc);
@@ -103,7 +109,7 @@ function renderMain(img_id){
  	  $('#mainImageContainer').html(domEle);
  	  //set the switch to empty the main image container next time we load an image
     doempty = 1;
-	}else{
+	} else {
 	  if(doempty) {
 	    $('#mainImageContainer').empty();
       var domEle = '<img src="" class="mainimg" id="mainImage">';
