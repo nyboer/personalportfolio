@@ -82,7 +82,8 @@ body {
   vertical-align: bottom;
   display: block;
   margin-top: -20px;
-  text-shadow: 2px 2px 1px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+  color: rgb(232, 220, 141);
 }
 #thumbs {
   position: relative;
@@ -96,7 +97,7 @@ body {
   opacity: 0.5;
 }
 
-.page {
+.projpage {
   background-color: rgba(255,255,255,0.2);
   padding: 5px 0 5px 0;
   border: 5px solid rgba(0,0,0,0.3);

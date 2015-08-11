@@ -36,17 +36,17 @@ $(document).on('click','.thumb',function(e){
   //replace main image:
    renderMain(img_id);
  
-   //render text:
- 
+   //render intro text as appropriate:
+  renderIntro(img_id);
 });
 
   //click on project button
-$(document).on('click','.page',function(e){
+$(document).on('click','.projpage',function(e){
   var pid = $(this).attr('id');
   var id = pid.split("_");
   //exclude label
   if(id.length>1){
-    $('.page').each(function(){
+    $('.projpage').each(function(){
       $( this ).removeClass('on');
       $( this ).removeClass('off');
       $( this ).addClass('off');
@@ -142,14 +142,39 @@ function renderText(){
   }
 }
 
+var idtointroname = ['problem','solution','tech'];
 function renderTitle(text){
   $('#projectTitle').fadeTo(200,0.1, function() {
       $(this).html(text);
-      var introtext = proj[currentproject].intro;
+      var introtext = proj[currentproject][idtointroname[0]];
       $('#intro').html(introtext);
   }).fadeTo(200,1);
-  
-//  $('#projectTitle').html(text);
+}
+
+function renderIntro(idnum){
+  $('#intro').fadeTo(200,0.1, function() {
+      var introtype = idtointroname[idnum];
+      var introtext = proj[currentproject][introtype];
+      if (introtype == 'tech'){
+        $('#intro').empty();
+        $('#intro').append('<p>'); //there's a better way to do this, I'm sure....
+        for(i in introtext){
+          $('#intro').append('• '+introtext[i]+'<br>');
+        }
+        $('#intro').append('</p>'); //there's a better way to do this, I'm sure....
+        if(!textiscollapsed){
+          $('#descriptitle').trigger('click');
+        }
+        $('#descripmore').fadeTo(10,0, function() {          
+          console.log('no more!');
+        })
+      }else{
+        $('#intro').html(introtext);
+        $('#descripmore').fadeTo(10,1, function() {          
+          console.log('yes more!');
+        })
+      }
+  }).fadeTo(200,1);
 }
 
 //create the projects row content based on database
@@ -162,7 +187,7 @@ function renderProjectsRow() {
     $('#projects').empty();
     //now fill it up
     for (ptitle in proj){
-      $('#projects').append( '<div class="proj page" id="project_'+i+'"><a href="#">'+ptitle+'</a></div>' );
+      $('#projects').append( '<div class="proj projpage" id="project_'+i+'"><a href="#">'+ptitle+'</a></div>' );
       projectnames[i]=ptitle;
       i++;
       console.log(i+' '+ptitle);
