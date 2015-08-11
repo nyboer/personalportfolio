@@ -62,7 +62,7 @@ $(document).on('click','.projpage',function(e){
 var currentproject = "";
 
 function renderProject(pname){
-  var thumblabels = ["problem","solution","tech","watch"];
+  var thumblabels = ["problem","solution","tools","watch"];
   currentproject = pname;
   console.log('rendering project '+pname);
   if(!textiscollapsed){
