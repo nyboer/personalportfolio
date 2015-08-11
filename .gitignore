@@ -8,3 +8,6 @@ node_modules
 
 # raw image directories
 public/img/* raw
+
+#for psds and other scratch files that don't need versioning
+other
