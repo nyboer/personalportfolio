@@ -1,3 +1,7 @@
+$( window ).resize(function() {
+  console.log('win width '+window.innerWidth);
+});
+
 //get database of project media
 var proj = {};
 $.getJSON('js/projects.json', function(p) {
@@ -16,7 +20,7 @@ $.getJSON('js/projects.json', function(p) {
 
 //because buttons are added dynamically, we use 'on()' instead of 'click()'
 
-  //click on thumbnail
+  //click on project's thumbnail
 $(document).on('click','.thumb',function(e){
   var thisid = $(this).attr('id');
   //select the child image in the div:
@@ -61,6 +65,7 @@ $(document).on('click','.projpage',function(e){
 //fill up the project area and thumnails with project content
 var currentproject = "";
 
+//when a project name is clicked on:
 function renderProject(pname){
   var thumblabels = ["problem","solution","tools","watch"];
   currentproject = pname;
@@ -70,7 +75,7 @@ function renderProject(pname){
   }
   //clear out the thumbs div
   $('#thumbs').empty();
-  
+  hidetoolstext();
   //iter through all the thumbnail images in the thumbs array:
   var i = 0;
   $('#thumbs').append('<div class="detail thumb" id="tn_blank">&nbsp;</div>');
@@ -87,8 +92,6 @@ function renderProject(pname){
   */
   //load first image into main image area:
   renderMain(0);
-  //load text into text overlay
-  //renderText();
   //load title into overlay
   renderTitle(pname);
 }
@@ -119,7 +122,8 @@ function renderMain(img_id){
 	  console.log('image width '+$('.mainimg').css("width"));
     var smallWin = ( window.innerWidth < 768 ) && ( $('#mainImage').css("width") != 720 );
 	  if(smallWin){
-	    $('#mainImage').css( "width", '720px' );
+	    $('#mainImage').css( 'width', '720px' );
+	    console.log('main window resized');
 	  }
     $('#mainImage').fadeTo(200,0, function() {
         $(this).attr('src',imsrc);
@@ -129,11 +133,14 @@ function renderMain(img_id){
   }
 }
 
+//put the full description into the projectText div
 var deferTextCollapse = 1;
-
 function renderText(){
+  console.log('rendering text and text is collapsed? '+textiscollapsed);
   var text = proj[currentproject].projectText;
   if(!textiscollapsed){
+    var imgpos = $('#mainImage').position();
+    $('#projectText').css('top', imgpos.top);
     $('#projectText').fadeTo(50,0, function() {
       $(this).html(text);
     }).delay(50).fadeTo(1200,1);
@@ -142,7 +149,8 @@ function renderText(){
   }
 }
 
-var idtointroname = ['problem','solution','tech'];
+//put the title text into the title div
+var idtointroname = ['problem','solution','tools'];
 function renderTitle(text){
   $('#projectTitle').fadeTo(200,0.1, function() {
       $(this).html(text);
@@ -151,15 +159,20 @@ function renderTitle(text){
   }).fadeTo(200,1);
 }
 
+//put text into the intro section for problem, solution, or tools section
 function renderIntro(idnum){
   $('#intro').fadeTo(200,0.1, function() {
       var introtype = idtointroname[idnum];
       var introtext = proj[currentproject][introtype];
-      if (introtype == 'tech'){
+      console.log('intro '+introtype+' --text-- '+introtext);
+      if (introtype == 'tools'){
         $('#intro').empty();
+        $('#toolsText').empty();
+        /*
         $('#intro').append('<p>'); //there's a better way to do this, I'm sure....
         for(i in introtext){
           $('#intro').append('• '+introtext[i]+'<br>');
+          console.log(introtext[i]);
         }
         $('#intro').append('</p>'); //there's a better way to do this, I'm sure....
         if(!textiscollapsed){
@@ -168,16 +181,40 @@ function renderIntro(idnum){
         $('#descripmore').fadeTo(10,0, function() {          
           console.log('no more!');
         })
+        */
+        
+        $('#toolsText').append('<p>'); //there's a better way to do this, I'm sure....
+        for(i in introtext){
+          $('#toolsText').append('• '+introtext[i]+'<br>');
+          console.log(introtext[i]);
+        }
+        $('#toolsText').append('</p>'); //there's a better way to do this, I'm sure....
+        $('#toolsText').fadeTo(200,1, function() {          
+          console.log('tools visible!');
+        });
+        $('#descripmore').fadeTo(10,0, function() {          
+          console.log('no more!');
+        });
+        var imgpos = $('#mainImage').position();
+        $('#toolsText').css('top', imgpos.top);
+        
       }else{
         $('#intro').html(introtext);
         $('#descripmore').fadeTo(10,1, function() {          
           console.log('yes more!');
-        })
+        });
+        hidetoolstext();
       }
   }).fadeTo(200,1);
 }
 
-//create the projects row content based on database
+function hidetoolstext(){
+        $('#toolsText').fadeTo(10,0, function() {          
+          console.log('tools visible!');
+        });
+}
+
+//create the projects row content based on JSON database
 var projectnames = []; //convenient
 function renderProjectsRow() {
   if(!isEmpty(proj)){  
@@ -224,11 +261,12 @@ function isEmpty(obj) {
 
     return true;
 }
-//listeners to collapse state. if we call renderText when collapsed, things get wacky.
+//listeners to collapse state. if we call renderText when collapsed, things get wacky, so we have some workarounds:
 var textiscollapsed = 1;
  $('#projectText').on('hide.bs.collapse', function(){
     textiscollapsed = 1;
     $('#descripmore').html('(...more...)');
+    $('#descripmore').css( 'color','rgb(232,220,141)' );
 //     $('.glyphicon').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
     $(this).html("");
     deferTextCollapse = 1;
@@ -242,6 +280,7 @@ var textiscollapsed = 1;
       renderText();
     };
     $('.description').addClass('darken');
+    $('#descripmore').css( 'color', 'rgb(255,255,255)' );
     $('#descripmore').html('(...less...)');
 //     $('.glyphicon').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
     console.log('------VISIBLE');

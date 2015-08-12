@@ -55,7 +55,8 @@ body {
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
   display: table;
-  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
   height: 100%; /* For at least Firefox */
   min-height: 100%;
   background-color: rgba(0,0,0,0.5);
@@ -67,8 +68,6 @@ body {
   vertical-align: top;
 }
 .cover-container {
-  margin-right: auto;
-  margin-left: auto;
 }
 
 .tn {
@@ -139,17 +138,26 @@ body {
   width: 720px
 }
 
+#projectText{
+  position: absolute;
+  top: 100px;
+}
+#toolsText{
+  position: absolute;
+}
 .description {
+/* 
   position: absolute;  
+ */
   top: 10px; 
-  padding: 16px 20px 0 20px;
+  padding: 16px 20px 10px 20px;
   text-align: left;
   background-color: rgba(0,0,0,0.0);
   font-size: 18px;
   line-height: 28px;
 }
 .darken {
-  background-color: rgba(0,0,0,0.65);
+  background-color: rgba(0,0,0,0.75);
 }
 .details {
   position:relative;
@@ -266,7 +274,52 @@ body {
  * Affix and center
  */
 
+@media (min-width: 640px) {
+  .site-wrapper {
+    min-width: 640px;
+  }
+  /* Pull out the header and footer */
+  .masthead {
+    position: fixed;
+    top: 0;
+  }
+  .mastfoot {
+    /*position: fixed;
+    bottom: 0;*/
+  }
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    /*vertical-align: middle;*/
+  }
+  /* Handle the widths */
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+  .description {
+    max-width: 640px;
+  }
+  .project {
+    width: 640px;
+  }
+  .mainimg {
+    width: 640px;
+  }
+  
+  #projectText{
+    position: static;
+  }
+  #toolsText{
+    position: absolute;
+  }
+
+}
+
 @media (min-width: 768px) {
+  .site-wrapper {
+    min-width: 720px;
+  }
   /* Pull out the header and footer */
   .masthead {
     position: fixed;
@@ -295,9 +348,20 @@ body {
   .mainimg {
     width: 720px;
   }
+  
+  #projectText{
+    position: static;
+  }
+  #toolsText{
+    position: absolute;
+  }
+
 }
 
 @media (min-width: 992px) {
+  .site-wrapper {
+    min-width: 920px;
+  }
   .masthead,
   .mastfoot,
   .cover-container {
@@ -312,5 +376,14 @@ body {
   .mainimg {
     width: 900px;
   }
+  
+  #projectText{
+    position: absolute;
+    top: 100px;
+  }
+  #toolsText{
+    position: absolute;
+  }
+
 }
   
