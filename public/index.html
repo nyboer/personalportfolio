@@ -19,17 +19,18 @@
     <link href="css/cover.css" rel="stylesheet">
     
     <!-- typefaces -->
-    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet'  type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'  type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet'  type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'  type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet'  type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'  type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet'  type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet'  type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One' rel='stylesheet'  type='text/css'>
     
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic|Josefin+Sans:300,400,300italic|Roboto:400,300,300italic|Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
+    <!--title type-->
+    <link href='http://fonts.googleapis.com/css?family=Nova+Flat|Concert+One|Fredoka+One|Stint+Ultra+Expanded|Patua+One|Coda' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
@@ -64,11 +65,13 @@
                   </span>                    
                 </a>
                 </div>
+
                 <span class="intro" id="intro">
                   <!--intro blurb-->
                 </span>
-                <a role="button" data-toggle="collapse"  data-target="#projectText" class="intro" id="descripmore"> (...more...)
+                <a role="button" data-toggle="collapse"  data-target="#projectText" id="descripmore"> (...more...)
                 </a> 
+
               </div>
               <div class="collapse description" id="projectText" >
                 <!--description text-->
@@ -78,6 +81,29 @@
               </div>
               <div id="mainImageContainer">
 <!--           <img src="" class="mainimg" id="mainImage"> -->
+<!-- if we are using Carousel: -->
+                <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators" id="carouselIndicators">
+                  <!--carousel indicators-->
+                  </ol>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner" role="listbox" id="carouselItems">
+                  <!--carousel item divs-->
+                  </div>
+
+                  <!-- Controls -->
+                  <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+<!-- end Carousel -->
               </div>
               <div class="" id="thumbs">
 <!--            <div class="detail thumb" id="tn_01"><img src="img/tn_01.jpg" class="tn"></div> -->

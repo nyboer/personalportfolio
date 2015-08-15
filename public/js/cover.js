@@ -1,6 +1,3 @@
-$( window ).resize(function() {
-  console.log('win width '+window.innerWidth);
-});
 
 //get database of project media
 var proj = {};
@@ -18,9 +15,33 @@ $.getJSON('js/projects.json', function(p) {
     console.log('projects JSON error');
   });
 
-//because buttons are added dynamically, we use 'on()' instead of 'click()'
 
-  //click on project's thumbnail
+//create the projects row content based on JSON database
+var projectnames = []; //convenient
+function renderProjectsRow() {
+  if(!isEmpty(proj)){  
+    var i=0;
+    var smallWin = ( window.innerWidth < 768 );
+    //first clear the projects div
+    $('#projects').empty();
+    //now fill it up
+    for (ptitle in proj){
+      $('#projects').append( '<div class="proj projpage" id="project_'+i+'"><a href="#">'+ptitle+'</a></div>' );
+      projectnames[i]=ptitle;
+      i++;
+      console.log(i+' '+ptitle);
+    }
+    /*
+    if(smallWin){
+      $('.proj').css('float','none');
+      $('#projects').css('position','fixed');
+      $('#projects').css('right',0);
+    }
+    */
+  }
+}
+
+//click on project's thumbnail
 $(document).on('click','.thumb',function(e){
   var thisid = $(this).attr('id');
   //select the child image in the div:
@@ -44,7 +65,7 @@ $(document).on('click','.thumb',function(e){
   renderIntro(img_id);
 });
 
-  //click on project button
+//click on project button
 $(document).on('click','.projpage',function(e){
   var pid = $(this).attr('id');
   var id = pid.split("_");
@@ -62,12 +83,29 @@ $(document).on('click','.projpage',function(e){
   }
 });
 
+var currentslide = 0;
+$("#carousel").on('slide.bs.carousel', function(evt) {
+  currentslide = $(evt.relatedTarget).index();
+  renderIntro(currentslide);
+  var vidstate = '';
+  var div = document.getElementById("carouselItems");
+  var iframe = div.getElementsByTagName("iframe")[0].contentWindow;
+  if (currentslide===3){
+    vidstate = 'playVideo';
+  }else{
+    vidstate = 'pauseVideo';
+  }
+  iframe.postMessage('{"event":"command","func":"' + vidstate + '","args":""}','*');
+})
+
 //fill up the project area and thumnails with project content
 var currentproject = "";
 
+var thumblabels = ["problem","solution","tools","watch"];
 //when a project name is clicked on:
 function renderProject(pname){
-  var thumblabels = ["problem","solution","tools","watch"];
+  //index.html?type=1
+  var usethumbs = $.urlParam('type'); //1 is sufficient
   currentproject = pname;
   console.log('rendering project '+pname);
   if(!textiscollapsed){
@@ -76,24 +114,30 @@ function renderProject(pname){
   //clear out the thumbs div
   $('#thumbs').empty();
   hidetoolstext();
-  //iter through all the thumbnail images in the thumbs array:
+  
+  if(!usethumbs){
+    renderCarousel();
+  }else{
+    $('#carousel').remove();
+    //iter through all the thumbnail images in the thumbs array:
+    renderThumbs();
+    //load first image into main image area:
+    renderMain(0);
+  }
+  //load title into overlay
+  renderTitle(pname);
+}
+
+function renderThumbs(){
   var i = 0;
   $('#thumbs').append('<div class="detail thumb" id="tn_blank">&nbsp;</div>');
-  for (t in proj[pname].thumbs){
-    thumbimg = proj[pname].thumbs[t];
+  for (t in proj[currentproject].thumbs){
+    thumbimg = proj[currentproject].thumbs[t];
     var id = 'tn_'+i;
     $('#thumbs').append('<div class="thumb detail" id="'+id+'"><img src="'+thumbimg+'" class="tn"></div>');
     $('#'+id).append('<span class="thumbnum">'+thumblabels[i]+'</span>');
     i++;
   };
-  /*
-  var vid = proj[pname].video;
-  
-  */
-  //load first image into main image area:
-  renderMain(0);
-  //load title into overlay
-  renderTitle(pname);
 }
 
 //load the main image from thumbnail click:
@@ -133,13 +177,40 @@ function renderMain(img_id){
   }
 }
 
+function renderCarousel(){
+  $('#carouselItems').empty();
+  $('#carouselIndicators').empty();
+  for (i in proj[currentproject].mains){
+    var indid = 'carouselInd_'+i
+    var indhtml = '<li data-target="#carousel-example-generic" data-slide-to="'+i+'" id="'+indid+'"></li>';
+    $('#carouselIndicators').append(indhtml);
+    var content = proj[currentproject].mains[i];
+    console.log ('carousel content: '+content);
+    var yout = content.split('youtube.com').length;
+    var imgid = 'main_'+i;
+    if(yout>1){
+      var hash = content.split('/').pop();
+      var movhtml = '<div class="item embed-responsive embed-responsive-16by9 mainimg" id="'+imgid+'"><iframe id="videoframe" src="http://www.youtube.com/embed/'+hash+'?version=3&amp;enablejsapi=1"></iframe></div>';
+      $('#carouselItems').append(movhtml);
+    }else{
+//       var itemhtml = '<div class="item" id="'+imgid+'"><img src="'+content+'" alt="Peter Nyboer portfolio"><div class="carousel-caption thumbnum">'+thumblabels[i]+'</div></div>';
+      var itemhtml = '<div class="item" id="'+imgid+'"><img src="'+content+'" alt="Peter Nyboer portfolio"></div>';
+      $('#carouselItems').append(itemhtml);
+    }
+    if(i==0){
+      $('#'+imgid).addClass('active');
+      $('#'+indid).addClass('active');
+    }
+  };
+}
+
 //put the full description into the projectText div
 var deferTextCollapse = 1;
 function renderText(){
   console.log('rendering text and text is collapsed? '+textiscollapsed);
   var text = proj[currentproject].projectText;
   if(!textiscollapsed){
-    var imgpos = $('#mainImage').position();
+    var imgpos = $('#mainImageContainer').position();
     $('#projectText').css('top', imgpos.top);
     $('#projectText').fadeTo(50,0, function() {
       $(this).html(text);
@@ -164,24 +235,9 @@ function renderIntro(idnum){
   $('#intro').fadeTo(200,0.1, function() {
       var introtype = idtointroname[idnum];
       var introtext = proj[currentproject][introtype];
-      console.log('intro '+introtype+' --text-- '+introtext);
       if (introtype == 'tools'){
         $('#intro').empty();
         $('#toolsText').empty();
-        /*
-        $('#intro').append('<p>'); //there's a better way to do this, I'm sure....
-        for(i in introtext){
-          $('#intro').append('• '+introtext[i]+'<br>');
-          console.log(introtext[i]);
-        }
-        $('#intro').append('</p>'); //there's a better way to do this, I'm sure....
-        if(!textiscollapsed){
-          $('#descriptitle').trigger('click');
-        }
-        $('#descripmore').fadeTo(10,0, function() {          
-          console.log('no more!');
-        })
-        */
         
         $('#toolsText').append('<p>'); //there's a better way to do this, I'm sure....
         for(i in introtext){
@@ -192,50 +248,22 @@ function renderIntro(idnum){
         $('#toolsText').fadeTo(200,1, function() {          
           console.log('tools visible!');
         });
-        $('#descripmore').fadeTo(10,0, function() {          
-          console.log('no more!');
-        });
-        var imgpos = $('#mainImage').position();
+        $('#descripmore').css('visibility','hidden');
+        var imgpos = $('#mainImageContainer').position();
         $('#toolsText').css('top', imgpos.top);
         
       }else{
         $('#intro').html(introtext);
-        $('#descripmore').fadeTo(10,1, function() {          
-          console.log('yes more!');
-        });
+        $('#descripmore').css('visibility','visible');
         hidetoolstext();
       }
   }).fadeTo(200,1);
 }
 
 function hidetoolstext(){
-        $('#toolsText').fadeTo(10,0, function() {          
-          console.log('tools visible!');
-        });
+        $('#toolsText').fadeOut('fast');
 }
 
-//create the projects row content based on JSON database
-var projectnames = []; //convenient
-function renderProjectsRow() {
-  if(!isEmpty(proj)){  
-    var i=0;
-    var smallWin = ( window.innerWidth < 768 );
-    //first clear the projects div
-    $('#projects').empty();
-    //now fill it up
-    for (ptitle in proj){
-      $('#projects').append( '<div class="proj projpage" id="project_'+i+'"><a href="#">'+ptitle+'</a></div>' );
-      projectnames[i]=ptitle;
-      i++;
-      console.log(i+' '+ptitle);
-    }
-    if(smallWin){
-      $('.proj').css('float','none');
-      $('#projects').css('position','fixed');
-      $('#projects').css('right',0);
-    }
-  }
-}
 
 //--UTLITIES---------------------------------------------------------------
 
@@ -285,3 +313,15 @@ var textiscollapsed = 1;
 //     $('.glyphicon').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
     console.log('------VISIBLE');
   });
+  
+//get url and store as variables
+//ex: given "example.com?param1=name" $.urlParam('param1') results in 'name'
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
+}

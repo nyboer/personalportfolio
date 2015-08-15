@@ -30,26 +30,21 @@ a:hover {
 html,
 
 body {
-  height: 100%;
-  background-color: #333;
-  font-size: 16px;
-  font-family: 'Arvo', 'Helvetica Neue','Helvetica',sans-serif;
-}
-body {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
   /*background-image: url('../img/aframes_lg.jpg');*/
   background-size: auto;
+  height: 100%;
+  background-color: #333;
+  font-size: 16px;
+  font-family: 'Roboto', 'Helvetica Neue','Helvetica',sans-serif;
 }
-.bog{
-  border: 1px solid rgba(0,200,0,1);
-}
-.bor{
-  border: 1px solid rgba(200,0,0,1);
-}
-.bow{
-  border: 1px solid rgba(255,255,255,1);
+
+/* override bootstrap */
+.carousel-control{
+  top: 0;
+  bottom: 25%;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -100,8 +95,9 @@ body {
   background-color: rgba(255,255,255,0.2);
   padding: 5px 0 5px 0;
   border: 5px solid rgba(0,0,0,0.3);
-  max-width: 200px;
+  min-height: 60px;
   cursor: pointer;
+  font-family: 'Coda', 'Helvetica Neue','Helvetica',sans-serif;
 }
 /*paged same as page, but named differently for exclusion from click functions. yes, kludge:*/
 .paged {
@@ -133,28 +129,30 @@ body {
 .mainimg {
   border: 16px solid rgba(0,0,0,0.5);
 }
-#mainImageContainer {
-  /*height: 520px;*/
-  width: 720px
-}
 
 #projectText{
-  position: absolute;
+  position: static;
   top: 100px;
+  z-index: 10;
 }
 #toolsText{
   position: absolute;
+  font-family: monospace;
+  z-index: 10;
+  padding-right: 20px;
+  background-color: rgba(0,0,0,0.75);
 }
 .description {
 /* 
   position: absolute;  
  */
   top: 10px; 
-  padding: 16px 20px 10px 20px;
+  padding: 5px 5px 10px 15px;
   text-align: left;
   background-color: rgba(0,0,0,0.0);
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 16px;
+  font-weight: 300;
+  /*line-height: 28px;*/
 }
 .darken {
   background-color: rgba(0,0,0,0.75);
@@ -166,33 +164,35 @@ body {
 .title {
   /*bottom: -10px; */
   /*right: -10px;*/
-  padding: 3px 8px 3px 8px;
+  padding: 1px 8px 1px 1px;
   text-align: left;
   font-size: 24px;
   /*font-weight:bold;*/
   border: 0.16px solid rgba(255,255,255,0.5);
-  font-family: 'Alfa Slab One', 'Helvetica Neue','Helvetica',sans-serif;
+  font-weight: 600;
+  font-family: 'Coda', 'Helvetica Neue','Helvetica',sans-serif;
 }
 .descriptitle{
   background-color: rgba(0,0,0,1);
-  padding: 3px;
+  /*padding: 3px;*/
   display: inline-block;
 }
 .intro {
   background-color: rgba(0,0,0,0.5);
   font-size: 18px;
-  font-weight: normal;
   font-style: italic; 
   /*display: block;*/
-  padding: 5px;
-  color: rgb(232, 220, 141);
+  /*padding: 5px;*/
+  /*color: rgb(232, 220, 141);*/
 }
-
+#descripmore{
+  color: rgb(255,250,210);
+}
 .padleft {
   padding-left: 15px;
 }
 .section {
-  margin-top: 16px;
+  margin-top: 5px;
 }
 
 /* Padding for spacing */
@@ -251,8 +251,8 @@ body {
  */
 
 .cover {
-  padding: 0 20px;
-  max-width: 900px;
+  padding: 0;
+  /*max-width: 900px;*/
 }
 .cover .btn-lg {
   padding: 10px 20px;
@@ -274,9 +274,14 @@ body {
  * Affix and center
  */
 
-@media (min-width: 640px) {
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
   .site-wrapper {
-    min-width: 640px;
+    min-width: 480px;
   }
   /* Pull out the header and footer */
   .masthead {
@@ -298,13 +303,13 @@ body {
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
   }
   .description {
-    max-width: 640px;
+    max-width: 480px;
   }
   .project {
-    width: 640px;
+    width: 480px;
   }
   .mainimg {
-    width: 640px;
+    width: 480px;
   }
   
   #projectText{
@@ -314,7 +319,18 @@ body {
     position: absolute;
   }
 
+  
 }
+
+/* Landscape 
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+}
+*/
 
 @media (min-width: 768px) {
   .site-wrapper {
@@ -360,7 +376,7 @@ body {
 
 @media (min-width: 992px) {
   .site-wrapper {
-    min-width: 920px;
+    /*min-width: 920px;*/
   }
   .masthead,
   .mastfoot,
@@ -378,7 +394,7 @@ body {
   }
   
   #projectText{
-    position: absolute;
+    position: static;
     top: 100px;
   }
   #toolsText{
