@@ -1,0 +1,289 @@
+/* reminder!! css padding margin lists are: top right bottom left */
+
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+
+body {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  /*background-image: url('../img/aframes_lg.jpg');*/
+  background-size: auto;
+  height: 100%;
+  background-color: #333;
+  font-size: 16px;
+  font-family: 'Roboto', 'Helvetica Neue','Helvetica',sans-serif;
+}
+
+/* override bootstrap */
+.carousel-control{
+  top: 0;
+  bottom: 25%;
+}
+.navbar{
+  margin-bottom: 5px;
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  max-width: 900px;
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.on {
+  opacity: 1;
+}
+.off {
+  opacity: 0.5;
+}
+
+#projects{
+  background-color: black;
+  width: 100%;
+}
+
+.projpage {
+  background-color: rgba(255,255,255,0.2);
+  padding: 5px 0 5px 0;
+  border: 5px solid rgba(0,0,0,0.3);
+  min-height: 65px;
+  cursor: pointer;
+  font-family: 'Coda','Futura', 'Helvetica Neue','Helvetica',sans-serif;
+}
+/*paged same as page, but named differently for exclusion from click functions. yes, kludge:*/
+.paged {
+  background-color: rgba(255,255,255,0.2);
+  padding: 5px 0 5px 0;
+  border: 5px solid rgba(0,0,0,0.3);
+/*   max-width: 200px; */
+  cursor: pointer;
+}
+.detail {
+  width: 12%;
+  float: left;
+}
+
+.proj {
+  width: 11%; 
+  float: left;
+}
+.project {
+  background-color: rgba(0,0,0,0.5);
+}
+.mainimg {
+  border: 16px solid rgba(0,0,0,0.5);
+  max-width: 100%;
+}
+
+#projectText{
+  position: static;
+  top: 100px;
+  z-index: 10;
+}
+#toolsText{
+  position: absolute;
+  font-family: monospace;
+  z-index: 10;
+  padding-right: 20px;
+  background-color: rgba(0,0,0,0.75);
+}
+.description {
+/* 
+  position: absolute;  
+ */
+  top: 10px; 
+  padding: 5px 5px 10px 15px;
+  text-align: left;
+  background-color: rgba(0,0,0,0.0);
+  font-size: 16px;
+  font-weight: 300;
+}
+.darken {
+  background-color: rgba(0,0,0,0.75);
+}
+.details {
+  position:relative;
+  top: -80px;
+}
+.title {
+  padding: 1px 8px 1px 1px;
+  text-align: left;
+  font-size: 24px;
+  border: 0.16px solid rgba(255,255,255,0.5);
+  font-weight: 600;
+  font-family: 'Coda','Futura', 'Helvetica Neue','Helvetica',sans-serif;
+}
+.descriptitle{
+  background-color: rgba(0,0,0,1);
+  display: inline-block;
+}
+.intro {
+  background-color: rgba(0,0,0,0.5);
+  font-size: 18px;
+  font-style: italic; 
+  /*display: block;*/
+  /*padding: 5px;*/
+  /*color: rgb(232, 220, 141);*/
+}
+#descripmore{
+  color: rgb(255,250,210);
+}
+.padleft {
+  padding-left: 15px;
+}
+.section {
+  margin-top: 5px;
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
+
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 0 0 15px 0;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+/*
+ * Footer
+ */
+
+.mastfoot {
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);
+}
+
+/*
+ * Affix and center
+ */
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+
+  body {  
+    font-size: 18px;
+  }
+  .site-wrapper {
+    min-width: 480px;
+  }
+
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    /*vertical-align: middle;*/
+  }
+  /* Handle the widths */
+  .mastfoot,
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+  .proj {
+    width: 20%;
+    min-height: 65px;
+  }
+  #projectText{
+    position: static;
+  }
+  #toolsText{
+    position: absolute;
+  }
+}
+
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+  body {  
+    font-size: 18px;
+  }
+  .proj {
+    width: 20%;
+    min-height: 70px;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    /*vertical-align: middle;*/
+  }
+  /* Handle the widths */
+  .mastfoot,
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+  #projectText{
+    position: static;
+  }
+  #toolsText{
+    position: absolute;
+  }
+  .proj {
+    width: 11%;
+    min-height: 70px;
+  }
+}
+
+@media (min-width: 992px) {
+  #projectText{
+    position: static;
+  }
+  #toolsText{
+    position: absolute;
+  }
+  .proj {
+    width: 11%;
+    min-height: 60px;
+  }
+}
+  
