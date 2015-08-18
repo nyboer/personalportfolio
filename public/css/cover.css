@@ -46,9 +46,13 @@ body {
   top: 0;
   bottom: 25%;
 }
+.navbar{
+  margin-bottom: 5px;
+}
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
+  max-width: 900px;
   display: table;
   margin-right: auto;
   margin-left: auto;
@@ -91,11 +95,16 @@ body {
   opacity: 0.5;
 }
 
+#projects{
+  background-color: black;
+}
+
+
 .projpage {
   background-color: rgba(255,255,255,0.2);
   padding: 5px 0 5px 0;
   border: 5px solid rgba(0,0,0,0.3);
-  min-height: 60px;
+  min-height: 65px;
   cursor: pointer;
   font-family: 'Coda', 'Helvetica Neue','Helvetica',sans-serif;
 }
@@ -104,13 +113,10 @@ body {
   background-color: rgba(255,255,255,0.2);
   padding: 5px 0 5px 0;
   border: 5px solid rgba(0,0,0,0.3);
-  max-width: 200px;
+/*   max-width: 200px; */
   cursor: pointer;
 }
 .detail {
-  /*background-color: rgba(0,0,0,0.5);*/
-  /*border: 5px solid rgba(255,255,255,0.3);*/
-  max-width: 200px;
   width: 12%;
   float: left;
 }
@@ -120,7 +126,7 @@ body {
 }
 
 .proj {
-  width: 12%;
+  width: 11%; 
   float: left;
 }
 .project {
@@ -153,7 +159,6 @@ body {
   background-color: rgba(0,0,0,0.0);
   font-size: 16px;
   font-weight: 300;
-  /*line-height: 28px;*/
 }
 .darken {
   background-color: rgba(0,0,0,0.75);
@@ -163,19 +168,15 @@ body {
   top: -80px;
 }
 .title {
-  /*bottom: -10px; */
-  /*right: -10px;*/
   padding: 1px 8px 1px 1px;
   text-align: left;
   font-size: 24px;
-  /*font-weight:bold;*/
   border: 0.16px solid rgba(255,255,255,0.5);
   font-weight: 600;
   font-family: 'Coda', 'Helvetica Neue','Helvetica',sans-serif;
 }
 .descriptitle{
   background-color: rgba(0,0,0,1);
-  /*padding: 3px;*/
   display: inline-block;
 }
 .intro {
@@ -237,14 +238,6 @@ body {
   border-bottom-color: #fff;
 }
 
-@media (min-width: 768px) {
-  .masthead-brand {
-    float: left;
-  }
-  .masthead-nav {
-    float: right;
-  }
-}
 
 
 /*
@@ -281,6 +274,10 @@ body {
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
+
+  body {  
+    font-size: 18px;
+  }
   .site-wrapper {
     min-width: 480px;
   }
@@ -289,10 +286,6 @@ body {
     position: fixed;
     top: 0;
   }
-  .mastfoot {
-    /*position: fixed;
-    bottom: 0;*/
-  }
   /* Start the vertical centering */
   .site-wrapper-inner {
     /*vertical-align: middle;*/
@@ -303,46 +296,48 @@ body {
   .cover-container {
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
   }
-  .description {
-    max-width: 480px;
+  .proj {
+    width: 20%;
+    min-height: 65px;
   }
-  .project {
-    width: 480px;
-  }
-  
   #projectText{
     position: static;
   }
   #toolsText{
     position: absolute;
   }
-
-  
 }
 
-/* Landscape 
+
 @media only screen 
   and (min-device-width: 320px) 
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: landscape) {
-
+  body {  
+    font-size: 18px;
+  }
+  .proj {
+    width: 20%;
+    min-height: 70px;
+  }
 }
-*/
+
+
+
 
 @media (min-width: 768px) {
-  .site-wrapper {
-    min-width: 720px;
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
   }
   /* Pull out the header and footer */
   .masthead {
     position: fixed;
     top: 0;
   }
-  .mastfoot {
-    /*position: fixed;
-    bottom: 0;*/
-  }
   /* Start the vertical centering */
   .site-wrapper-inner {
     /*vertical-align: middle;*/
@@ -353,45 +348,28 @@ body {
   .cover-container {
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
   }
-  .description {
-    max-width: 720px;
-  }
-  .project {
-    width: 720px;
-  }
-  
   #projectText{
     position: static;
   }
   #toolsText{
     position: absolute;
   }
-
+  .proj {
+    width: 11%;
+    min-height: 70px;
+  }
 }
 
 @media (min-width: 992px) {
-  .site-wrapper {
-    /*min-width: 920px;*/
-  }
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 90%;
-  }
-  .description {
-    max-width: 900px;
-  }
-  .project {
-    width: 900px;
-  }
-  
   #projectText{
     position: static;
-    top: 100px;
   }
   #toolsText{
     position: absolute;
   }
-
+  .proj {
+    width: 11%;
+    min-height: 60px;
+  }
 }
   

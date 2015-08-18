@@ -1,3 +1,7 @@
+// 
+// $( window ).resize(function() {
+//   console.log('window width: '+ $( window ).width());
+// });
 
 //get database of project media
 var proj = {};
@@ -26,18 +30,12 @@ function renderProjectsRow() {
     $('#projects').empty();
     //now fill it up
     for (ptitle in proj){
-      $('#projects').append( '<div class="proj projpage" id="project_'+i+'"><a href="#">'+ptitle+'</a></div>' );
+      //$('#projects').append( '<div class="proj projpage" id="project_'+i+'"><a href="#">'+ptitle+'</a></div>' );
+      var somehtml = '<li class="proj projpage" id="project_'+i+'"><ahref="#">'+ptitle+'</a></li>'
+      $('#projects').append(somehtml);
       projectnames[i]=ptitle;
       i++;
-      console.log(i+' '+ptitle);
     }
-    /*
-    if(smallWin){
-      $('.proj').css('float','none');
-      $('#projects').css('position','fixed');
-      $('#projects').css('right',0);
-    }
-    */
   }
 }
 
@@ -88,20 +86,25 @@ $("#carousel").on('slide.bs.carousel', function(evt) {
   currentslide = $(evt.relatedTarget).index();
   renderIntro(currentslide);
   var vidstate = '';
-  var div = document.getElementById("carouselItems");
-  var iframe = div.getElementsByTagName("iframe")[0].contentWindow;
-  if (currentslide===3){
-    vidstate = 'playVideo';
-  }else{
-    vidstate = 'pauseVideo';
+  var div = document.getElementById('carouselItems');
+  //a very generic test. Of course, if you use an iframe for some other reason, this won't work.
+  var test = $('iframe').length;
+  //play the movie if entering the movie, pause if leaving the movie slide
+  if(test>0){
+    var iframe = div.getElementsByTagName('iframe')[0].contentWindow;
+    if (currentslide===3){
+      vidstate = 'playVideo';
+    }else{
+      vidstate = 'pauseVideo';
+    }
+    iframe.postMessage('{"event":"command","func":"' + vidstate + '","args":""}','*');
   }
-  iframe.postMessage('{"event":"command","func":"' + vidstate + '","args":""}','*');
 })
 
 //fill up the project area and thumnails with project content
-var currentproject = "";
+var currentproject = '';
 
-var thumblabels = ["problem","solution","tools","watch"];
+var thumblabels = ['problem','solution','tools','watch'];
 //when a project name is clicked on:
 function renderProject(pname){
   //index.html?type=1
@@ -164,15 +167,10 @@ function renderMain(img_id){
 	  }
 	  //not getting @media css adjustments on phone, for whatever reason, so do it the hard way:
 	  console.log('image width '+$('.mainimg').css("width"));
-    var smallWin = ( window.innerWidth < 768 ) && ( $('#mainImage').css("width") != 720 );
-	  if(smallWin){
-	    $('#mainImage').css( 'width', '720px' );
-	    console.log('main window resized');
-	  }
+
     $('#mainImage').fadeTo(200,0, function() {
         $(this).attr('src',imsrc);
     }).fadeTo(200,1);
-//  $('#mainImage').attr('src', imsrc);
     doempty = 0;
   }
 }
@@ -235,7 +233,7 @@ function renderIntro(idnum){
   $('#intro').fadeTo(200,0.1, function() {
       var introtype = idtointroname[idnum];
       var introtext = proj[currentproject][introtype];
-      if (introtype == 'tools'){
+      if (introtype == 'tools' && introtext!==''){
         $('#intro').empty();
         $('#toolsText').empty();
         
@@ -295,7 +293,6 @@ var textiscollapsed = 1;
     textiscollapsed = 1;
     $('#descripmore').html('(...more...)');
     $('#descripmore').css( 'color','rgb(232,220,141)' );
-//     $('.glyphicon').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
     $(this).html("");
     deferTextCollapse = 1;
     $('.description').removeClass('darken');
@@ -310,7 +307,6 @@ var textiscollapsed = 1;
     $('.description').addClass('darken');
     $('#descripmore').css( 'color', 'rgb(255,255,255)' );
     $('#descripmore').html('(...less...)');
-//     $('.glyphicon').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
     console.log('------VISIBLE');
   });
   

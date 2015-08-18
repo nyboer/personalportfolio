@@ -22,44 +22,51 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'  type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet'  type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet'  type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'  type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet'  type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet'  type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One' rel='stylesheet'  type='text/css'>
     
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic|Josefin+Sans:300,400,300italic|Roboto:400,300,300italic|Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic' rel='stylesheet' type='text/css'>
     <!--title type-->
-    <link href='http://fonts.googleapis.com/css?family=Nova+Flat|Concert+One|Fredoka+One|Stint+Ultra+Expanded|Patua+One|Coda' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Coda' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
 
     <div class="site-wrapper">
-<!--
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">Cover</h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-              </nav>
-            </div>
-          </div>
--->
+
           <div class="inner cover">
           <!--BEGIN PROJECT mainImage projectText tn_<n> -->
+          <!-- old menu -->
+<!-- 
           <div class="section" id="projects">
-            <!--<div class="proj projpage">p1</div>-->
+            <!~~<div class="proj projpage">p1</div>~~>
           </div>
+ -->
+          <!-- let bootstrap handle the menu responsiveness -->
+          <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" id="projects">
+<!--                   <li><a class="proj projpage" href="#">item1</a></li> -->
+                </ul>
+              </div>
+            </div>
+          </nav>
+          
+          <!-- end nav bar-->
+          
           <div id="project" class="project">    
               <div class="description">
                 <div class="descriptitle">
                 <a role="button" data-toggle="collapse"  data-target="#projectText" class="" id="descriptitle">
-<!--                   <span class="glyphicon glyphicon-chevron-up"></span> -->
                   <span class="title" id="projectTitle">
                     <!--TITLE OF PROJECT-->
                   </span>                    
@@ -81,7 +88,7 @@
               </div>
               <div id="mainImageContainer">
 <!--           <img src="" class="mainimg" id="mainImage"> -->
-<!-- if we are using Carousel: -->
+<!-- or, if we are using Carousel: -->
                 <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="">
                   <!-- Indicators -->
                   <ol class="carousel-indicators" id="carouselIndicators">
