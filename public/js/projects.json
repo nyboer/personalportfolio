@@ -1,6 +1,6 @@
 {
   "About": {
-    "mains": ["img/About01.jpg","img/About02.jpg","img/About03.jpg","img/About04.jpg"],
+    "mains": ["img/About04.jpg","img/About02.jpg","img/About03.jpg","img/About01.jpg"],
     "problem": "Peter Nyboer is an avid user, abuser, and transducer of high technology and interactive design. Peruse these projects to learn about the ground-breaking products, creative solutions, and variety of technology he has experienced.",
     "solution":"Peter Nyboer is an avid user, abuser, and transducer of high technology and interactive design. Peruse these projects to learn about the ground-breaking products, creative solutions, and variety of technology he has experienced.",
     "projectText": "<p>Though he’d like to be described as a raconteur, a bon-vivant, or even a nomme-de-guerre, Peter Nyboer is content having largely avoided a life described by French pejoratives. Dressed simply and comfortably, Peter pursues the satisfaction of bringing music and video to life through software and hardware. As a partner in Livid, he makes sure the Livid controllers can do something on a computer, whether that means trigger a sound, play a note, tweak a filter, playback a video, control a light, or keep open the possibility for something that hasn’t been thought. Drawing on the vast history of electronic music and multi-media performance, Peter started working with Jay Smith and Travis Redding to put live video performance on the stage. Over the years, he has helped transform Livid from a niche video mixing product to a company with a complete product line with global reach in music and media production.</p>",
@@ -22,7 +22,7 @@
     "tools": ["Lua","MIDI","Reason Remote API"]
   },
   "Base Controller": {
-    "mains": ["img/Base_aurex01.jpg", "img/Base_history.jpg", "img/BaseII_image1.jpg",  "http://www.youtube.com/v/MF-Tl_vEYNQ"],
+    "mains": ["img/Base_aurex01.jpg", "img/Base_history.jpg", "img/baseII_image1.jpg",  "http://www.youtube.com/v/MF-Tl_vEYNQ"],
     "problem": "Livid wanted to create something portable, expand on our existing technology, and deliver an instrument to connect musicians to their sounds.",
     "solution":"As an enthusiastic historian of music technology, I lead the team to arrive at a design that enabled true creative play with any music software.",
     "projectText": "In 2013, Livid needed to go beyond the tropes of DJ and remixing to create a MIDI controller for expressive production. Taking lead for the conceptual and interactive design, I knew we needed to move to pressure sensitive controls that could play percussion and tonal sounds with both hands, providing expressive dynamic range. Taking cues from historical and contemporary devices, we incorporated capacitive sensing controls so get rid of moving parts for continuous controls. The result is a portable and playable device that combines the best of button-based controls, traditional drum pads, mixing board production, giving musicians a new way to make new music.",
@@ -51,7 +51,7 @@
     "tools": ["Linux","shell scripting","Pure Data","OSC","nodejs","MIDI","jquery","websockets","linux configuration for audio"]
   },
   "Guitar Wing": {
-    "mains": ["img/GuitarWing01.jpg", "img/Gwing_p01.jpg", "img/Gwing_p02.jpg", "https://www.youtube.com/v/Hu4U3VG1U1I"],
+    "mains": ["img/GuitarWing01.jpg", "img/Gwing_p01.jpg", "img/GWing_p02.jpg", "https://www.youtube.com/v/Hu4U3VG1U1I"],
     "problem": "Livid successfully <a href='https://www.kickstarter.com/projects/livid/guitar-wing-wireless-control-surface-for-guitar-an/description'>Kickstarted</a> the Guitar Wing, offering a new way for guitarists to control digital sound and recording. Reaching a new market was the first step. Making it useful and inspiring was the next.",
     "solution":"Working with some of the most popular music software, I created templates, scripts, and interaction so guitarists could get work done quickly, but also be inspired with new sounds and ways of using their instrument. I also designed a webpage to deliver the content to new customers to get them started.",
     "projectText": "Livid Instruments released the Guitar Wing, possible the most inventive music product of 2014. Designed to give a guitarist control over digital effects and recording from the 'horn' of the guitar, the Guitar Wing introduced a new way for guitarists to tweak, tone, and tape their sound. After a successful Kickstarter campaign to fund the production and introduce the product to the general public, we needed to fulfill the promise of allowing a huge variety of software to work seamlessly with the Guitar Wing. With the help of some remote programmers, I designed and delivered unique templates, interactive scripts, and content so guitarists could take full advantage of this unique device for expanding their sound.",
