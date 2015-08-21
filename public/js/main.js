@@ -48,7 +48,7 @@ function setupProjects(){
   }
 }
 
-//create the projects row content based on JSON database
+//create the projects nav content based on JSON database
 var projectnames = []; //convenient
 function renderProjectsRow() {
   if(!isEmpty(proj)){ 
@@ -64,9 +64,10 @@ function renderProjectsRow() {
       i++;
     }
   }
-  console.log('showing projects: '+projectnames);
+//   console.log('showing projects: '+projectnames);
 }
 
+var currentproject = '';
 //click on project button
 $(document).on('click','.projpage',function(e){
   var pid = $(this).attr('id');
@@ -81,141 +82,70 @@ $(document).on('click','.projpage',function(e){
     $( this ).removeClass('off');
     $( this ).addClass('on');
     var pname = projectnames[ id[1] ]
-    renderProject(pname)
+    currentproject = pname;
+    renderPage(pname)
   }
 });
 
-var currentslide = 0;
-$("#carousel").on('slide.bs.carousel', function(evt) {
-
-  currentslide = $(evt.relatedTarget).index();
-  renderIntro(currentslide);
-  var vidstate = '';
-  var div = document.getElementById('carouselItems');
-  
-  //a very generic test. Of course, if you use an iframe for some other reason than holding a movie, this won't work.
-  var test = $('iframe').length;
-  
-  //play the movie if entering the movie slide, pause if leaving the movie slide
-  if(test>0){
-    var iframe = div.getElementsByTagName('iframe')[0].contentWindow;
-    if (currentslide===3){
-      //vidstate = 'playVideo'; //uncomment to autoplay video 
-    }else{
-      vidstate = 'pauseVideo';
-    }
-    iframe.postMessage('{"event":"command","func":"' + vidstate + '","args":""}','*');
-  }
-})
 
 //fill up the project area with project content
-var currentproject = '';
+
 //when a project name is clicked on:
 function renderProject(pname){
-  currentproject = pname;
-  console.log('rendering project '+pname);
+  
+//   console.log('rendering project '+pname);
   if(!textiscollapsed){
     $('#descriptitle').trigger('click');
   }
-  hidetoolstext();
-  
-  //put all the images into the carousel
-  renderCarousel();
-  
-  //load title into overlay
-  renderTitle(pname);
 }
 
-function renderCarousel(){
-  $('#carouselItems').empty();
-  $('#carouselIndicators').empty();
-  for (i in proj[currentproject].mains){
-    //indicator bullet points:
-    var indid = 'carouselInd_'+i
-    var indhtml = '<li data-target="#carousel-example-generic" data-slide-to="'+i+'" id="'+indid+'"></li>';
-    $('#carouselIndicators').append(indhtml);
+function renderPage() {
+//   console.log('rendering page: '+currentproject);
+  $('#project').fadeTo(100,0., function() {  
+  
+    //title text
+    var titletext = currentproject;
+    $('#projectTitle').html(titletext);
+  
+    //intro text
+    var problemtext = proj[currentproject]['problem'];
+//     console.log('problemtext: '+problemtext);
+    $('#problem').html(problemtext);
+  
+    var solutiontext = proj[currentproject]['solution'];
+//     console.log('solutiontext: '+solutiontext);
+    $('#solution').html(solutiontext);
+  
+    //project text
+    var maintext = proj[currentproject]['projectText'];
+//     console.log('maintext: '+maintext);
+    $('#projectText').html(maintext);
+
+    //tools text
+    $('#toolsText').empty();
+    $('#toolsText').append('<p>'); //there's a better way to do this, I'm sure....
+    var introtext = proj[currentproject]['tools'];
+    for(i in introtext){
+      $('#toolsText').append('• '+introtext[i]+'<br>');
+//       console.log(introtext[i]);
+    }
+    $('#toolsText').append('</p>'); //there's a better way to do this, I'm sure....
     
-    //images for carousel:
-    var content = proj[currentproject].mains[i];
-    console.log ('carousel content: '+content);
-    var yout = content.split('youtube.com').length;
-    var imgid = 'main_'+i;
-    //deal with youtube embeds a bit differently:
-    if(yout>1){
-      var hash = content.split('/').pop();
-      var movhtml = '<div class="item embed-responsive embed-responsive-16by9 mainimg" id="'+imgid+'"><iframe id="videoframe" src="http://www.youtube.com/embed/'+hash+'?version=3&amp;enablejsapi=1"></iframe></div>';
-      $('#carouselItems').append(movhtml);
-    }else{
-      var itemhtml = '<div class="item" id="'+imgid+'"><img src="'+content+'" alt="Peter Nyboer portfolio"></div>';
-      $('#carouselItems').append(itemhtml);
-    }
-    if(i==0){
-      $('#'+imgid).addClass('active');
-      $('#'+indid).addClass('active');
-    }
-  };
-}
-
-//put the full description into the projectText div
-var deferTextCollapse = 1;
-function renderText(){
-  //get the text for the project
-  var text = proj[currentproject].projectText;
-  //only render the text if the text panel is visible. otherwise defer it until the panel is visible:
-  if(!textiscollapsed){
-    var imgpos = $('#mainImageContainer').position();
-    $('#projectText').css('top', imgpos.top);
-    $('#projectText').fadeTo(50,0, function() {
-      $(this).html(text);
-    }).delay(50).fadeTo(1200,1);
-  } else {
-    deferTextCollapse = 1;
-  }
-}
-
-//put the title text into the title div
-var idtointroname = ['problem','solution','tools'];
-function renderTitle(text){
-  $('#projectTitle').fadeTo(200,0.1, function() {
-      $(this).html(text);
-      var introtext = proj[currentproject][idtointroname[0]];
-      $('#intro').html(introtext);
-  }).fadeTo(200,1);
-}
-
-//put text into the intro section for problem, solution, or tools section
-function renderIntro(idnum){
-  $('#intro').fadeTo(200,0.1, function() {
-      var introtype = idtointroname[idnum];
-      var introtext = proj[currentproject][introtype];
-      //tools text take a bit of adjustment
-      if (introtype == 'tools' && introtext!==''){
-        $('#intro').empty();
-        $('#toolsText').empty();
-        
-        $('#toolsText').append('<p>'); //there's a better way to do this, I'm sure....
-        for(i in introtext){
-          $('#toolsText').append('• '+introtext[i]+'<br>');
-          console.log(introtext[i]);
-        }
-        $('#toolsText').append('</p>'); //there's a better way to do this, I'm sure....
-        $('#toolsText').fadeTo(200,1, function() {          
-          console.log('tools visible!');
-        });
-        $('#descripmore').css('visibility','hidden');
-        var imgpos = $('#mainImageContainer').position();
-        $('#toolsText').css('top', imgpos.top);
-        
-      }else{
-        $('#intro').html(introtext);
-        $('#descripmore').css('visibility','visible');
-        hidetoolstext();
+    //images
+    var images = proj[currentproject]['mains'];
+    for (i in images){    
+      var yout = images[i].split('youtube.com').length;
+      //first image goes into a parallax container https://github.com/pixelcog/parallax.js/      
+      if(yout>1){
+        var hash = images[i].split('/').pop(); //the hash code used for the youtube URL, e.g. HGV3yV9q4Q4
+        var movhtml = '<div class="item embed-responsive embed-responsive-16by9 mainimg" id="video"><iframe id="videoframe" src="http://www.youtube.com/embed/'+hash+'?version=3&amp;enablejsapi=1"></iframe></div>';
+        $('#image_'+i).html(movhtml);
+      }else{  
+        var imghtml = '<img src="'+images[i]+'" alt="Peter Nyboer portfolio" class="mainimg">'
+        $('#image_'+i).html(imghtml);
       }
-  }).fadeTo(200,1);
-}
-
-function hidetoolstext(){
-        $('#toolsText').fadeOut('fast');
+    }
+  }).fadeTo(400,1);;
 }
 
 
@@ -242,29 +172,6 @@ function isEmpty(obj) {
     return true;
 }
 
-//listen to collapse state of full text. if we call renderText when collapsed, things get wacky, so we have some workarounds:
-var textiscollapsed = 1;
- $('#projectText').on('hide.bs.collapse', function(){
-    textiscollapsed = 1;
-    $('#descripmore').html('(...more...)');
-    $('#descripmore').css( 'color','rgb(232,220,141)' );
-    $(this).html("");
-    deferTextCollapse = 1;
-    $('.description').removeClass('darken');
-//     console.log('------COLLAPSED');
-  });
-  $('#projectText').on('show.bs.collapse', function(){
-    textiscollapsed = 0;
-    if(deferTextCollapse){
-      deferTextCollapse = 0;
-      renderText();
-    };
-    $('.description').addClass('darken');
-    $('#descripmore').css( 'color', 'rgb(255,255,255)' );
-    $('#descripmore').html('(...less...)');
-//     console.log('------VISIBLE');
-  });
-  
 //get url and store as variables
 //ex: given "example.com?param1=name" $.urlParam('param1') results in 'name'
 $.urlParam = function(name){
