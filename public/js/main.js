@@ -100,7 +100,7 @@ $("#carousel").on('slide.bs.carousel', function(evt) {
   if(test>0){
     var iframe = div.getElementsByTagName('iframe')[0].contentWindow;
     if (currentslide===3){
-      vidstate = 'playVideo';
+      //vidstate = 'playVideo'; //uncomment to autoplay video 
     }else{
       vidstate = 'pauseVideo';
     }
