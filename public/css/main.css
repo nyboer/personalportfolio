@@ -65,7 +65,6 @@ body {
 /*   background-color: rgba(255,255,255,0.2); */
   padding: 5px 0 5px 0;
   border: 5px solid rgba(0,0,0,0.3);
-  min-height: 65px;
   cursor: pointer;
   font-family: 'Coda','Futura', 'Helvetica Neue','Helvetica',sans-serif;
 }
@@ -193,7 +192,7 @@ body {
   }
   .proj {
     width: 20%;
-    min-height: 65px;
+    min-height: 70px;
   }
   #projectText{
     position: static;
@@ -214,7 +213,7 @@ body {
   }
   .proj {
     width: 20%;
-    min-height: 70px;
+    min-height: 65px;
   }
 }
 
