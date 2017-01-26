@@ -14,7 +14,7 @@ $.getJSON('js/projects.json', function(p) {
     setupProjects();
     renderProjectsRow();
     //renderProject(projectnames[0]);
-    $('#project_0').trigger('click');
+    //$('#project_0').trigger('click');
   })
   .fail(function() {
     console.log('projects JSON error');
@@ -48,18 +48,21 @@ function setupProjects(){
   }
 }
 
-//create the projects nav content based on JSON database
+//create the project tiles content based on JSON database
 var projectnames = []; //convenient
 function renderProjectsRow() {
   if(!isEmpty(proj)){
     //first clear the projects div
-    $('#projects').empty();
+    $('#tiles').empty();
     //now fill it up
     var i=0;
     for (i in projToRender){
       var ptitle = projToRender[i];
-      var somehtml = '<li class="proj projpage" id="project_'+i+'"><ahref="#">'+ptitle+'</a></li>'
-      $('#projects').append(somehtml);
+      var tileimg = proj[ptitle]["tile"]
+      console.log(ptitle+' , '+tileimg)
+      var somehtml = '<div class="project-block col-sm-4"><div class="panel panel-default"><div class="image-block panel-heading" style="background: url('+tileimg+') no-repeat center top;background-size:cover;"></div><div class="projpage panel-body" id="project_'+i+'"><ahref="#">'+ptitle+'</a></div></div></div>'
+      console.log(somehtml)
+      $('#tiles').append(somehtml);
       projectnames[i]=ptitle;
       i++;
     }
@@ -87,7 +90,18 @@ $(document).on('click','.projpage',function(e){
   }
 });
 
-
+$(document).on('click','.maintitle',function(e){
+  if($('#project').is(':visible')) {
+    $('#project').fadeTo(400,0., function() {
+      $('#project').hide();
+      $('.projpage').each(function(){
+        $( this ).removeClass('on');
+        $( this ).removeClass('off');
+        $( this ).addClass('off');
+      });
+    });
+  }
+});
 //fill up the project area with project content
 
 //when a project name is clicked on:
@@ -101,6 +115,7 @@ function renderProject(pname){
 
 function renderPage() {
 //   console.log('rendering page: '+currentproject);
+  $('#tiles').fadeTo(100,1);
   $('#project').fadeTo(100,0., function() {
 
     //title text
@@ -145,6 +160,7 @@ function renderPage() {
         $('#image_'+i).html(imghtml);
       }
     }
+    window.scroll(0,0)
   }).fadeTo(400,1);;
 }
 

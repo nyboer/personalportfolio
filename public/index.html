@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=0.63">
-    
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Portfolio Template">
     <meta name="author" content="Peter Nyboer">
@@ -17,97 +17,85 @@
 
     <!-- Custom styles for this template -->
     <link href="css/main.css" rel="stylesheet">
-    
-    <!-- typefaces -->    
+
+    <!-- typefaces -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic' rel='stylesheet' type='text/css'>
     <!--title type-->
     <link href='http://fonts.googleapis.com/css?family=Coda' rel='stylesheet' type='text/css'>
-    
+
   </head>
 
   <body>
+    <div class="container-fluid">
+<!--START TITLE-->
+      <div class="row text-center">
+          <h3 class="maintitle">Peter Nyboer : Portfolio</h3>
+      </div>
+<!--END TITLE-->
 
-    <div class="site-wrapper">
+<!--START PROJECT-->
+      <div id="project" class="project">
 
-          <div class="inner cover">
-          <!--BEGIN PROJECT mainImage projectText tn_<n> -->
-
-          <!-- let bootstrap handle the menu responsiveness -->
-          <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-            <div class="">
-              <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                  </button>
-              </div>
-
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav" id="projects">
-<!--                   <li><a class="proj projpage" href="#">item1</a></li> -->
-                </ul>
-              </div>
+          <div class="blackbar">
+            <div class="title" id="projectTitle">
+              <!--TITLE OF PROJECT-->
             </div>
-          </nav>
-          
-          <!-- end nav bar-->
-          <!--START PROJECT-->
-          <div id="project" class="project">      
-
-              <div class="blackbar">
-                <div class="title" id="projectTitle">
-                  <!--TITLE OF PROJECT-->
-                </div>
-              </div>              
-              
-              <div class="blackbar">
-                <div class="intro" id="problem">
-                  <!--problem blurb-->
-                </div>
-              </div>
-
-              <div id="image_0">
-<!--               <img src="img/image_00.jpg" class="image"> -->
-              </div>
-
-              <div class="blackbar">
-                <div class="intro" id="solution">
-                  <!--solution blurb-->
-                </div>
-              </div>              
-              
-              <div id="image_1">
-<!--               <img src="img/image_01.jpg" class="image"> -->
-              </div>
-              
-              <div class="blackbar">
-                <div class="description" id="projectText" >
-                  <!--full text-->
-                </div>
-              </div>                
-              
-              <div id="image_2">
-<!--               <img src="img/image_02.jpg" class="image">-->
-              </div>
-              
-              <div class="blackbar">              
-                <div class="description" id="toolsText" >
-                  <!--text about tools and skills-->
-                </div>
-              </div>
-
-              <div id="image_3">
-<!--               <img src="img/image_03.jpg" class="image"> or video-->
-              </div>
           </div>
-            <!--END PROJECT-->
-          <div style="clear: both;"></div>
-          <div class="mastfoot">
-              <p>all contents copyright Peter Nyboer 2015</p>
+
+          <div class="blackbar">
+            <div class="intro" id="problem">
+              <!--problem blurb-->
+            </div>
           </div>
+
+          <div id="image_0">
+  <!--               <img src="img/image_00.jpg" class="image"> -->
+          </div>
+
+          <div class="blackbar">
+            <div class="intro" id="solution">
+              <!--solution blurb-->
+            </div>
+          </div>
+
+          <div id="image_1">
+  <!--               <img src="img/image_01.jpg" class="image"> -->
+          </div>
+
+          <div class="blackbar">
+            <div class="description" id="projectText" >
+              <!--full text-->
+            </div>
+          </div>
+
+          <div id="image_2">
+  <!--               <img src="img/image_02.jpg" class="image">-->
+          </div>
+
+          <div class="blackbar">
+            <div class="description" id="toolsText" >
+              <!--text about tools and skills-->
+            </div>
+          </div>
+
+          <div id="image_3">
+  <!--               <img src="img/image_03.jpg" class="image"> or video-->
+          </div>
+      </div>
+<!--END PROJECT-->
+
+<!--BEGIN TILES-->
+        <div class="row" id="tiles">
+          <!--
+            project tiles are appended here via JS
+          -->
+        </div>
+<!--END TILES-->
+        <div style="clear: both;"></div>
+        <div class="mastfoot">
+            <p>all contents copyright Peter Nyboer 2015</p>
+        </div>
+
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -115,7 +103,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main_tiles.js"></script>
+
 
   </body>
 </html>

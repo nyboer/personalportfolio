@@ -1,6 +1,7 @@
 {
   "About": {
     "mains": ["img/About04.jpg","img/About02.jpg"],
+    "tile": "img/About_tile.jpg",
     "problem": "Peter Nyboer is an avid user, abuser, and transducer of high technology and interactive design. Peruse these projects to learn about his development of ground-breaking products and the company he helped grow.",
     "solution":"<p> Dressed simply and comfortably, Peter pursues the satisfaction of bringing music and video to life through software and hardware. As a partner in Livid, he makes sure the Livid controllers can do something on a computer: trigger a sound, play a note, tweak a filter, playback a video, control a light, or facilitate the creation of something not yet imagined. Drawing on the vast history of electronic music and multi-media performance, Peter started working with Jay Smith and Travis Redding to put live video performance on the stage. Over the years, Livid transformed from a niche video mixing product to a company with a complete product line and global reach in music and media production. Though he’d like to be described as a raconteur, a bon-vivant, or even a nom-de-guerre, Peter Nyboer is content having largely avoided a life described by French pejoratives.</p>Peter Nyboer<br>pboer@gmail.com<br>408 256 2637",
     "projectText": "",
@@ -8,14 +9,23 @@
   },
   "Livid LCD": {
     "mains": ["img/LCD_studio02.jpg", "img/LCD_anim.gif", "img/LCD_demo01.jpg", "http://www.youtube.com/v/EghkTt_EyyU"],
+    "tile": "img/LCD_tile.jpg",
     "problem": "Livid designs controllers to encourage creativity and possibility, but the many modes can be hard to keep up with. Other controllers use screenprinted labels or ugly LCDs. We didn't want to be tied down to such solutions.",
     "solution":"I leveraged the beautiful, full-color screen in everyone's pocket. LividLCD generates a responsive, customizable display to keep artists focused on their work so they can continue to play.",
     "projectText": "<p>Using a non-traditional 'music controller' (as opposed to a piano keyboard) for controlling and composing music offers a lot of creative potential. A lot of this potential resides in the ability to dynamically map a hardware button or slider to a musical function: pitch, filters, effects, and more.</p><p>Livid LCD is an ingenious solution for generating data displays for dynamic hardware controls. Typically, small LCDs are used to show parameter values and assignments of hardware controls of software parameters. LividLCD makes this much more flexible, acting as a webserver to turn any screen-with-a-browser into a parameter display.</p><p>This puts all the most relevant information front and center, letting the computer do the work and the artist do her job.</p>",
     "tools": ["nodejs","JavaScript","Lua","jquery","HTML","websockets","Open Sound Control (UDP)","MIDI","Ableton Live","Propellerheads Reason"]
-    
+  },
+  "Next Thing Co Documentation": {
+    "mains": ["img/CHIPDocs_00.jpg", "img/CHIPDocs_01.jpg", "img/CHIPDocs_02.jpg", "img/CHIPDocs_03.jpg"],
+    "tile": "img/CHIPDocs_tile.jpg",
+    "problem": "Next Thing Co had kickstarted a $9 computer with $2 Million worth of backers. But how on earth do you use this thing?",
+    "solution":"Coming from my own hardware company, I knew we had to get as much information out to people to make sure they could get started. I wrote, organized, and published documenation using the open-source <a href='https://github.com/lord/slate' class='linked'>Slate</a>",
+    "projectText": "Working with everyone in the company - programmers, engineers, marketing, and operations, I pushed, prodded, and produced documentation for the CHIP computer. Not only did I finish it before it was shipped, but I delivered it in such a way that it could be easily corrected, scaled for new products, and updated by the community as they figured out better ways of doing things. I wrote and tested all the examples. Additionally, I wrote documentation for the technically challenging DIP boards and CHIP Pro Dev Kit. See all the work at <a href='https://docs.getchip.com' class='linked'>Next Thing Co docs</a>",
+    "tools": ["Embedded Linux","Pure Data","wavetable synthesis","shell scripting","documentation"]
   },
   "Reason + Base": {
     "mains": ["img/ReasonBase_intro.jpg","img/ReasonBaseAnnotated01.jpg", "img/Reason_base_01.jpg", "http://www.youtube.com/v/voyGs7cC6_s"],
+    "tile": "img/Reason_base_tile.jpg",
     "problem": "Propellerheads Reason is a powerful music production software with dozens of different interfaces. Putting all of these tools into a producer's hands in a way that keeps the music flowing and allows for true creativity seemed impossible.",
     "solution":"I programmed the interaction to focus on the most important things: recording, playing and sound production. Working closely with the developers at Propellerheads, musicians now have hands-on control to get any sound, any melody, and any rhythm from a compact controller.",
     "projectText": "Propellerheads Reason offers a vast array of virtual physical devices for music production: samplers, effects, mixers, synthesizers, and more. Using the Lua scripting language, the Base communicates directly with Reason's API to map to every device to create a consistent, playable, musical instrument that puts the most powerful features in hand for expressive performance and productive efficiency. Now, producers have instant access to any sound, any scale, drum kits, and step sequencing in one device for a revolutionary new way to work with a legendary software.",
@@ -23,6 +33,7 @@
   },
   "Base Controller": {
     "mains": ["img/Base_aurex01.jpg", "img/Base_history.jpg", "img/baseII_image1.jpg",  "http://www.youtube.com/v/MF-Tl_vEYNQ"],
+    "tile": "img/baseII_tile.jpg",
     "problem": "Livid wanted to create something portable, expand on our existing technology, and deliver an instrument to connect musicians to their sounds.",
     "solution":"As an enthusiastic historian of music technology, I led the team to arrive at a design that enabled true creative play with any music software.",
     "projectText": "In 2013, Livid needed to go beyond the tropes of DJ and remixing to create a MIDI controller for expressive production. Taking lead for the conceptual and interactive design, I knew we needed to move to pressure sensitive controls that could play percussion and tonal sounds with both hands, providing expressive dynamic range. Taking cues from historical and contemporary devices, we incorporated capacitive sensing controls to get rid of moving parts for continuous controls. The result is a new way to make music: a portable and playable device that combines the best of button-based controls, traditional drum pads, and mixing board production.",
@@ -30,21 +41,24 @@
   },
   "Cell DNA": {
     "mains": ["img/Cell_cloudveins.jpg", "img/Cell_Callouts.jpg", "img/Cell_inuse.jpg", "http://www.youtube.com/v/I3bfR-q6EtY"],
+    "tile": "img/Cell_tile.jpg",
     "problem": "Today's musicians need more than a glowing body on stage. The laptop can make any sound, anywhere, but lacks the drama and substance of traditional instruments.",
     "solution":"I programmed CellDNA to expand the performers expression beyond the body and onto the large screen. Making it easy to use was important, but offering a truly deep creative experience was the goal.",
     "projectText": "We started Livid Instruments as a video instrument company, with products serving the needs of the nascent VJ and live-video markets. Cell DNA is the ultimate product of that legacy, incorporating ease of use in concept, but a deep ability to modify video clips on the fly with inventive OpenGL effects, comprehensive MIDI control, and rich media access. The program was made using Cycling 74's Max and Jitter programs, organized by sophisticated JavaScript and SQL database technology. It also incorporates a custom copy-protection scheme and web-based registration that I designed and implemented, avoiding staggering third party fees. I programmed, maintained, and supported this product largely as a solo effort within the Livid company.",
     "tools": ["Max/MSP/Jitter","JavaScript","OpenGL","UI Graphics production","Encryption and copy protection."]
   },
-  "Cloud+ Hardware": {
+  "Cloud + Hardware": {
     "thumbs": ["img/Editor_01a_tn.jpg", "img/Editor_annotated_tn.jpg","img/Editor_toolsscreen_tn.jpg", "img/videoicon.png"],
+    "tile": "img/Editor_tile.jpg",
     "mains": ["img/Editor_01a.jpg", "img/Editor_annotated.jpg","img/Editor_toolsscreen.jpg", "http://www.youtube.com/v/ctE13SY-9Tg"],
     "problem": "As Livid grew its product line, this meant exciting growth for the company. For software, it meant too many applications, too many files, too many platforms, too much maintenance, too many installers, and too many changes for a small team to manage.",
     "solution":"I solved this in the most modern way possible: the internet. Taking advantage of new standards linking hardware and browsers, I created Livid's Universal Online Controller Editor. Now everyone is on the same page everywhere.",
     "projectText": "Livid MIDI controllers are highly customizable devices. Using system exclusive protocol, the settings and colors can be changed by the user. However, to make this usable for all but the most committed programmer, there needs to be a GUI. As our controller product family grew, we needed to condense all editing possibilities into a single program. Using web technologies, I designed and programmed an Editor system that would let customers communicate with our hardware using a browser. Programmed in JavaScript, Jquery, HTML, and CSS, the Livid Online Editor saved countless hours and provided instant convenience for customers by making it universally available. ",
     "tools": ["JavaScript","jquery","HTML","CSS","SVG","Raphael Graphics","Web MIDI"]
   },
-  "SOC Music": {
+  "RPi Drum Machine and 303": {
     "mains": ["img/Embed_01.JPG", "img/Embed_02.JPG", "img/Embed_03.JPG", "http://www.youtube.com/v/Ok2LyfeAtXw"],
+    "tile":"img/Embed_tile.JPG",
     "problem": "Livid's core business is hardware controllers designed to work with desktop and laptop computers. This paradigm is shifting as evidenced by growing markets in in mobile music, modular systems, and workstations. Livid needed to research some ideas to see how we could adapt.",
     "solution":"I researched embedded computing as a possible platform for creating a new music ecosystem. Using a Raspberry Pi to represent a base performance and cost, I prototyped a platform of an inexpensive dedicated, reprogrammable music making machine.",
     "projectText": "As small, powerful computing becomes more of a commodity, we at Livid decided to investigate the possibilities of leveraging a Linux-based SOC as an interactive DSP platform that could work seamlessly with our controller products to create unique dedicated sound generating and processing instruments. To test the viability of commonly available, inexpensive systems, I configured a Raspberry Pi to run Pure Data for easy prototyping, and created two different instruments - a bassline synthesizer and a drum sampler, each with unique sonic controls and sequencing. I also configured an Olinuxino A13 board to build run Pure Data to run some test programs as a comparison. LividLCD technology was used to create a UI for the headless computer, allowing for user configuration and touch-screen interaction.",
@@ -52,6 +66,7 @@
   },
   "Guitar Wing": {
     "mains": ["img/GuitarWing01.jpg", "img/Gwing_p01.jpg", "img/GWing_p02.jpg", "https://www.youtube.com/v/Hu4U3VG1U1I"],
+    "tile": "img/GuitarWing_tile.jpg",
     "problem": "Livid successfully <a href='https://www.kickstarter.com/projects/livid/guitar-wing-wireless-control-surface-for-guitar-an/description'>Kickstarted</a> the Guitar Wing, offering a new way for guitarists to control digital sound and recording. Reaching a new market was the first step. Making it useful and inspiring was the next.",
     "solution":"Working with some of the most popular music software, I created templates, scripts, and interaction so guitarists could get work done quickly, but also be inspired with new sounds and ways of using their instrument. I also designed a webpage to deliver the content to new customers to get them started.",
     "projectText": "Livid Instruments released the Guitar Wing, possible the most inventive music product of 2014. Designed to give a guitarist control over digital effects and recording from the 'horn' of the guitar, the Guitar Wing introduced a new way for guitarists to tweak, tone, and tape their sound. After a successful Kickstarter campaign to fund the production and introduce the product to the general public, we needed to fulfill the promise of allowing a huge variety of software to work seamlessly with the Guitar Wing. With the help of some remote programmers, I designed and delivered unique templates, interactive scripts, and content so guitarists could take full advantage of this unique device for expanding their sound.",
@@ -59,9 +74,18 @@
   },
   "Respondr Interactive": {
     "mains": ["img/Respondr_coke.jpg", "img/Respondr_01.jpg", "img/Respondr_bud.jpg", "http://www.youtube.com/v/Rsp88UFLWTQ"],
+    "tile": "img/Respondr_tile.jpg",
     "problem": "At the dawn of the 21st century, companies and brands found themselves looking for new ways to engage customers and attract attention. Banner ads and billboards weren't going to cut it anymore. ",
     "solution":"Working with M1 Interactive, I programmed a flexible. interactive video display system that helped clients create magic on any surface.",
     "projectText": "In partnership with M1 Interactive, I programmed a computer vision system for interactive, projected content. Taking up to four cameras as input, I programmed several types of tracking and setup routines to extract data from video frames to control games and visual effects. This application also had a programmable schedule to change to different games and effects and apply the appropriate settings for the tracker. This system was used for pop-up events, parties, trade shows, and permanent installations. Notable clients included Coca Cola at the Vancouver Winter Olympics, Vanderbilt University, Bridgestone Tires, and Joe DiMaggio Children's Hospital.",
     "tools": ["Max/MSP","camera vision","blob tracking","Flash","OpenGL","JavaScript","shell scripting"]
+  },
+  "CHIP MIDI synthesizer": {
+    "mains": ["img/CHIPMAS_materials.jpg", "img/CHIPMAS_portrait.jpg", "img/CHIPMAS_screen.jpg", "http://www.youtube.com/v/jE_z4NU-0nw"],
+    "tile": "img/CHIPMAS_tile.jpg",
+    "problem": "The $9 C.H.I.P. computer was on its way out the door, and we needed some interesting examples.",
+    "solution":"As the only synth nerd in the company, I set out to excite my world with a versatile noisemaker that turned a 'computer' into a 'thing.''",
+    "projectText": "One of the first things I wanted to do with CHIP is make noise. I knew that a lot of people from the music products industry would be very intrigued by the CHIP's possibilities, and I wanted to highlight the very capable built-in audio of the CHIP. I figured out how to get Pure Data built and running, then proceeded to make a patch that would make a huge variety of sound in a non-traditional way. While the published version on <a href='https://www.hackster.io/11802/c-h-i-p-midi-arpeggiating-synth-e311ab' class='linked'>hackster.io</a> is a single entity, this synthesizer was actually produced to be controlled remotely from a Livid DS1, in parallel with several instances, creating a surround-sound synthesizer.",
+    "tools": ["Embedded Linux","Pure Data","wavetable synthesis","shell scripting","documentation"]
   }
 }

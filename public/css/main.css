@@ -21,12 +21,13 @@ html,
 
 body {
   color: #fff;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  text-shadow: 0 1px 1px rgba(0,0,0,.5);
   background-size: auto;
   height: 100%;
   background-color: #333;
   font-size: 16px;
   font-family: 'Roboto', 'Helvetica Neue','Helvetica',sans-serif;
+  padding: 0 2% 0 2%;
 }
 
 /* override bootstrap */
@@ -38,6 +39,13 @@ body {
   margin-bottom: 5px;
   text-align: center;
 }
+.panel{
+  border-radius: 0;
+}
+.panel-body{
+  background-color: #000;
+}
+
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
@@ -60,6 +68,27 @@ body {
 /*   background-color: black; */
   width: 100%;
 }
+#project{
+  background-color: black;
+  max-width: 900px;
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 5px 0 5px 0;
+  display: none;
+}
+
+#tiles{
+/*   background-color: black; */
+}
+
+.tiletitle {
+/*   background-color: rgba(255,255,255,0.2); */
+  padding: 5px 0 5px 5px;
+  border: 5px solid rgba(0,0,0,0.3);
+  cursor: pointer;
+  font-family: 'Coda','Futura', 'Helvetica Neue','Helvetica',sans-serif;
+}
 
 .projpage {
 /*   background-color: rgba(255,255,255,0.2); */
@@ -69,16 +98,19 @@ body {
   font-family: 'Coda','Futura', 'Helvetica Neue','Helvetica',sans-serif;
 }
 
-
-.on {
+.off {
   opacity: 1;
 }
-.off {
+.on {
   opacity: 0.5;
 }
 
+.linked {
+  color: #edb626;
+}
+
 .proj {
-  width: 11%; 
+  width: 11%;
   float: left;
 }
 .blackbar {
@@ -88,6 +120,16 @@ body {
 .mainimg {
 /*   border: 16px solid rgba(0,0,0,0.5); */
   max-width: 100%;
+}
+
+.image-block {
+    border: 1px solid white ;
+    background-color: black;
+    padding: 0px;
+    margin: 0px;
+    height:200px;
+    text-align: center;
+    vertical-align: bottom;
 }
 
 #projectText{
@@ -102,6 +144,22 @@ body {
 /*   background-color: rgba(0,0,0,0.75); */
 }
 
+.project-block{
+  padding: 5px 10px 0px 10px;
+}
+
+.maintitle {
+  cursor: pointer;
+  padding: 3px 0 3px 0;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 900;
+  font-family: 'Coda','Futura', 'Helvetica Neue','Helvetica',sans-serif;
+  color: #edb626;
+  background-color: rgba(0,0,0,1);
+  text-transform: uppercase;
+}
+
 .title {
   padding: 0;
   padding-left: 35px;
@@ -114,7 +172,7 @@ body {
 .intro {
   background-color: rgba(0,0,0,1);
   font-size: 18px;
-  font-style: italic; 
+  font-style: italic;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
@@ -168,13 +226,13 @@ body {
  */
 
 /* Portrait */
-@media only screen 
-  and (min-device-width: 320px) 
+@media only screen
+  and (min-device-width: 320px)
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
 
-  body {  
+  body {
     font-size: 18px;
   }
   .site-wrapper {
@@ -203,12 +261,12 @@ body {
 }
 
 
-@media only screen 
-  and (min-device-width: 320px) 
+@media only screen
+  and (min-device-width: 320px)
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: landscape) {
-  body {  
+  body {
     font-size: 18px;
   }
   .proj {
@@ -257,4 +315,3 @@ body {
     width: 900px;
   }
 }
-  
