@@ -21,7 +21,7 @@
     "problem": "Next Thing Co had kickstarted a $9 computer with $2 Million worth of backers. But how on earth do you use this thing?",
     "solution":"Coming from my own hardware company, I knew we had to get as much information out to people to make sure they could get started. I wrote, organized, and published documenation using the open-source <a href='https://github.com/lord/slate' class='linked'>Slate</a>",
     "projectText": "Working with everyone in the company - programmers, engineers, marketing, and operations, I pushed, prodded, and produced documentation for the CHIP computer. Not only did I finish it before it was shipped, but I delivered it in such a way that it could be easily corrected, scaled for new products, and updated by the community as they figured out better ways of doing things. I wrote and tested all the examples. Additionally, I wrote documentation for the technically challenging DIP boards and CHIP Pro Dev Kit. See all the work at <a href='https://docs.getchip.com' class='linked'>Next Thing Co docs</a>",
-    "tools": ["Embedded Linux","Pure Data","wavetable synthesis","shell scripting","documentation"]
+    "tools": ["Embedded Linux","markdown","git","shell scripting","GPIO", "device trees", "buildroot"]
   },
   "Reason + Base": {
     "mains": ["img/ReasonBase_intro.jpg","img/ReasonBaseAnnotated01.jpg", "img/Reason_base_01.jpg", "http://www.youtube.com/v/voyGs7cC6_s"],
