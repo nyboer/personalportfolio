@@ -72,18 +72,19 @@ function renderProjectsRow() {
 
 var currentproject = '';
 //click on project button
-$(document).on('click','.projpage',function(e){
-  var pid = $(this).attr('id');
+$(document).on('click','.project-block',function(e){
+  labelrow = $(this).find('.projpage')
+  pid = labelrow.attr('id');
   var id = pid.split("_");
   //exclude label
   if(id.length>1){
     $('.projpage').each(function(){
-      $( this ).removeClass('on');
-      $( this ).removeClass('off');
-      $( this ).addClass('off');
+      $('.projpage').removeClass('on');
+      $('.projpage').removeClass('off');
+      $('.projpage').addClass('off');
     });
-    $( this ).removeClass('off');
-    $( this ).addClass('on');
+    labelrow.removeClass('off');
+    labelrow.addClass('on');
     var pname = projectnames[ id[1] ]
     currentproject = pname;
     renderPage(pname)
@@ -115,53 +116,58 @@ function renderProject(pname){
 
 function renderPage() {
 //   console.log('rendering page: '+currentproject);
-  $('#tiles').fadeTo(100,1);
-  $('#project').fadeTo(100,0., function() {
+    $('#tiles').fadeTo(100,1,function(){
+    $('#project').fadeTo(100,0., function() {
 
-    //title text
-    var titletext = currentproject;
-    $('#projectTitle').html(titletext);
+      //title text
+      var titletext = currentproject;
+      $('#projectTitle').html(titletext);
 
-    //intro text
-    var problemtext = proj[currentproject]['problem'];
-//     console.log('problemtext: '+problemtext);
-    $('#problem').html(problemtext);
+      //intro text
+      var problemtext = proj[currentproject]['problem'];
+  //     console.log('problemtext: '+problemtext);
+      $('#problem').html(problemtext);
 
-    var solutiontext = proj[currentproject]['solution'];
-//     console.log('solutiontext: '+solutiontext);
-    $('#solution').html(solutiontext);
+      var solutiontext = proj[currentproject]['solution'];
+  //     console.log('solutiontext: '+solutiontext);
+      $('#solution').html(solutiontext);
 
-    //project text
-    var maintext = proj[currentproject]['projectText'];
-//     console.log('maintext: '+maintext);
-    $('#projectText').html(maintext);
+      //project text
+      var maintext = proj[currentproject]['projectText'];
+  //     console.log('maintext: '+maintext);
+      $('#projectText').html(maintext);
 
-    //tools text
-    $('#toolsText').empty();
-    $('#toolsText').append('<p>'); //there's a better way to do this, I'm sure....
-    var introtext = proj[currentproject]['tools'];
-    for(i in introtext){
-      $('#toolsText').append('• '+introtext[i]+'<br>');
-//       console.log(introtext[i]);
-    }
-    $('#toolsText').append('</p>'); //there's a better way to do this, I'm sure....
-
-    //images
-    var images = proj[currentproject]['mains'];
-    for (i in images){
-      var yout = images[i].split('youtube.com').length;
-      //first image goes into a parallax container https://github.com/pixelcog/parallax.js/
-      if(yout>1){
-        var hash = images[i].split('/').pop(); //the hash code used for the youtube URL, e.g. HGV3yV9q4Q4
-        var movhtml = '<div class="item embed-responsive embed-responsive-16by9 mainimg" id="video"><iframe id="videoframe" src="http://www.youtube.com/embed/'+hash+'?version=3&amp;enablejsapi=1"></iframe></div>';
-        $('#image_'+i).html(movhtml);
-      }else{
-        var imghtml = '<img src="'+images[i]+'" alt="Peter Nyboer portfolio" class="mainimg">'
-        $('#image_'+i).html(imghtml);
+      //tools text
+      $('#toolsText').empty();
+      $('#toolsText').append('<p>'); //there's a better way to do this, I'm sure....
+      var introtext = proj[currentproject]['tools'];
+      for(i in introtext){
+        $('#toolsText').append('• '+introtext[i]+'<br>');
+  //       console.log(introtext[i]);
       }
-    }
-    window.scroll(0,0)
-  }).fadeTo(400,1);;
+      $('#toolsText').append('</p>'); //there's a better way to do this, I'm sure....
+
+      //images
+      var images = proj[currentproject]['mains'];
+      for (i in images){
+        var yout = images[i].split('youtube.com').length;
+        //first image goes into a parallax container https://github.com/pixelcog/parallax.js/
+        if(yout>1){
+          var hash = images[i].split('/').pop(); //the hash code used for the youtube URL, e.g. HGV3yV9q4Q4
+          var movhtml = '<div class="item embed-responsive embed-responsive-16by9 mainimg" id="video"><iframe id="videoframe" src="http://www.youtube.com/embed/'+hash+'?version=3&amp;enablejsapi=1"></iframe></div>';
+          $('#image_'+i).html(movhtml);
+        }else{
+          $('#image_'+i).empty();
+          //check if there's an image file - there may not be!
+          if(images[i]){
+            var imghtml = '<img src="'+images[i]+'" alt="Peter Nyboer portfolio" class="mainimg">'
+            $('#image_'+i).html(imghtml);
+          }
+        }
+      }
+      window.scroll(0,0)
+    }).fadeTo(400,1);
+  });
 }
 
 
