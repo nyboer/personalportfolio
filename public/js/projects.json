@@ -23,6 +23,14 @@
     "projectText": "Working with everyone in the company - programmers, engineers, marketing, and operations, I pushed, prodded, and produced documentation for the CHIP computer. Not only did I finish it before it was shipped, but I delivered it in such a way that it could be easily corrected, scaled for new products, and updated by the community as they figured out better ways of doing things. I wrote and tested all the examples. Additionally, I wrote documentation for the technically challenging DIP boards and CHIP Pro Dev Kit. See all the work at <a href='https://docs.getchip.com' class='linked'>Next Thing Co docs</a>",
     "tools": ["Embedded Linux","markdown","git","shell scripting","GPIO", "device trees", "buildroot"]
   },
+  "Sparkle Portable Speaker Prototype":{
+    "mains": ["img/sparkle01.jpg","img/sparkle02.jpg","img/sparkle03.jpg","img/sparkle04.jpg"],
+    "tile": "img/sparkle_tile.jpg",
+    "problem": "We had sketches, conversations, and lots of ideas to re-imagine the portable speakers. Now we needed to see if it would work and what it might be like. ",
+    "solution":"With a limited number of buttons, a small amplifier, and a CHIP computer, we created a wireless, portable speaker with three modes: Spotify streaming, Bluetooth connection, and drum machine sampler.",
+    "projectText": "I had done a lot of market research and preparation on how we might move forward with a new speaker for a Fortune 500 consumer electronics brand. We used the $9 CHIP computer, several open-source programs, and Python scripting to create an incredibly fun and odd-looking device that performed three different roles. I helped guide the design and interaction, programmed the Spotify mode, and kept track of the team's progress to make it come together.",
+    "tools": ["Spotify API", "Python","Bluez API", "shell scripting", "Embedded Linux"]
+  },
   "Reason + Base": {
     "mains": ["img/ReasonBase_intro.jpg","img/ReasonBaseAnnotated01.jpg", "img/Reason_base_01.jpg", "http://www.youtube.com/v/voyGs7cC6_s"],
     "tile": "img/Reason_base_tile.jpg",
@@ -39,7 +47,7 @@
     "projectText": "In 2013, Livid needed to go beyond the tropes of DJ and remixing to create a MIDI controller for expressive production. Taking lead for the conceptual and interactive design, I knew we needed to move to pressure sensitive controls that could play percussion and tonal sounds with both hands, providing expressive dynamic range. Taking cues from historical and contemporary devices, we incorporated capacitive sensing controls to get rid of moving parts for continuous controls. The result is a new way to make music: a portable and playable device that combines the best of button-based controls, traditional drum pads, and mixing board production.",
     "tools": ""
   },
-  "Cell DNA": {
+  "Cell DNA Video Mixing Software": {
     "mains": ["img/Cell_cloudveins.jpg", "img/Cell_Callouts.jpg", "img/Cell_inuse.jpg", "http://www.youtube.com/v/I3bfR-q6EtY"],
     "tile": "img/Cell_tile.jpg",
     "problem": "Today's musicians need more than a glowing body on stage. The laptop can make any sound, anywhere, but lacks the drama and substance of traditional instruments.",
@@ -87,5 +95,13 @@
     "solution":"As the only synth nerd in the company, I set out to excite my world with a versatile noisemaker that turned a 'computer' into a 'thing.''",
     "projectText": "One of the first things I wanted to do with CHIP is make noise. I knew that a lot of people from the music products industry would be very intrigued by the CHIP's possibilities, and I wanted to highlight the very capable built-in audio of the CHIP. I figured out how to get Pure Data built and running, then proceeded to make a patch that would make a huge variety of sound in a non-traditional way. While the published version on <a href='https://www.hackster.io/11802/c-h-i-p-midi-arpeggiating-synth-e311ab' class='linked'>hackster.io</a> is a single entity, this synthesizer was actually produced to be controlled remotely from a Livid DS1, in parallel with several instances, creating a surround-sound synthesizer.",
     "tools": ["Embedded Linux","Pure Data","wavetable synthesis","shell scripting","documentation"]
+  },
+  "This Website": {
+    "mains": [],
+    "tile": "img/Portfolio_tile.jpg",
+    "problem": "I needed to document my work and make it easy to add new projects. Most templates or web services had too much or too little to offer.",
+    "solution":"As you might expect from the other work in this portfolio, I have a strong bent towards DIY. I used bootstrap for the layout, then wrote javascript to plug in content from a simple JSON document.",
+    "projectText": "Yes, this is a tounge-in-cheek, meta-reference, post-modern, fully-hyphenated inclusion. But I am still kinda proud of knocking out this website in an effective and easy manner.",
+    "tools": ["HTML","jQuery","bootstrap","nodejs","JavaScript","Photography"]
   }
 }
