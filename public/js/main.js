@@ -58,7 +58,7 @@ function renderProjectsRow() {
     var i=0;
     for (i in projToRender){
       var ptitle = projToRender[i];
-      var somehtml = '<li class="proj projpage" id="project_'+i+'"><ahref="#">'+ptitle+'</a></li>'
+      var somehtml = '<li class="proj projpage" id="project_'+i+'"><a href="#">'+ptitle+'</a></li>'
       $('#projects').append(somehtml);
       projectnames[i]=ptitle;
       i++;
@@ -138,7 +138,8 @@ function renderPage() {
       //first image goes into a parallax container https://github.com/pixelcog/parallax.js/
       if(yout>1){
         var hash = images[i].split('/').pop(); //the hash code used for the youtube URL, e.g. HGV3yV9q4Q4
-        var movhtml = '<div class="item embed-responsive embed-responsive-16by9 mainimg" id="video"><iframe id="videoframe" src="http://www.youtube.com/embed/'+hash+'?version=3&amp;enablejsapi=1"></iframe></div>';
+        // var movhtml = '<div class="item embed-responsive embed-responsive-16by9 mainimg" id="video"><iframe id="videoframe" src="http://www.youtube.com/embed/'+hash+'?version=3&amp;enablejsapi=1"></iframe></div>';
+        var movhtml = '<div data-youcover data-width="100%" data-height="640" data-src="https://www.youtube.com/embed/'+hash+'?rel=0&amp;showinfo=0&amp;autoplay=1" data-allowfullscreen></div>'
         $('#image_'+i).html(movhtml);
       }else{
         var imghtml = '<img src="'+images[i]+'" alt="Peter Nyboer portfolio" class="mainimg">'

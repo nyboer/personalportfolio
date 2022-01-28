@@ -2,25 +2,25 @@
   "About": {
     "mains": ["img/About04.jpg","img/About02.jpg","",""],
     "tile": "img/About_tile.jpg",
-    "problem": "Peter Nyboer is an avid user, abuser, and transducer of high technology and interactive design. Peruse these projects to learn about his development of ground-breaking products and the company he helped grow.",
+    "problem": "Peter Nyboer is an avid user, abuser, and transducer of high technology and interactive design. Peruse these projects to learn about his development of ground-breaking products and the companies he helped grow.",
     "solution":"<p> Peter pursues a satisfaction of bringing music and video to life through software and hardware. As a partner in Livid, he was responsible for making sure sure the Livid controllers can do something on a computer: trigger a sound, play a note, tweak a filter, playback a video, control a light, or facilitate the creation of something not yet imagined. Peter formed Livid with Jay Smith and Travis Redding to put live video performance on the stage, where his role was to direct the interaction and partnerships with many music software titles. Over the years, Livid transformed from a niche video mixing product to a company with a complete product line and global reach in music and media production. He has also worked with embedded computing at Next Thing Co, helping form direction and experiments in the audio capabilities for an inexpensive, single-core open-source computer. Currently he is helping Sensel shape and communicate the possibilities of their Morph product, both behind the scenes with technical considerations and in consumer-facing content.</p>Peter Nyboer<br>pboer@gmail.com<br>408 256 2637",
     "projectText": "",
     "tools": ""
   },
 
   "Marketing Partnerships": {
-    "mains": ["img/ccmarketing_00.jpg", "img/ccmarketing_01.jpg", "img/ccmarketing_02.jpg", "https://youtu.be/FjK_Z9L3z7A"],
+    "mains": ["img/ccmarketing_00.jpg", "img/ccmarketing_01.jpg", "img/ccmarketing_03.jpg", "http://www.youtube.com/v/FjK_Z9L3z7A"],
     "tile": "img/partners_title.jpg",
     "problem": "Sensel needed to expand its audience and build trust for potential customers. Their new product, the Morph, needed to be seen with existing, trusted companies, and leverage their audiences for building our brand.",
     "solution":"I dug into my network of music industry companies to gather an all-star cast of prizes and co-marketers. I convinced companies large and small to add their products to prize promotions, video placements, and social media shares. Beyond promotions, I also reached out to select companies to integrate the Morph's native multi-touch, pressure-sensitive contact data into their software directly - Cycling 74, Symbolic Sound, extended their software to use the Morph in innovative ways.",
-    "projectText": "As an experienced player in the music products industry, I talked to key decisions makers in individual companies and brought them on-board for our promotions. I was able to engage participation of Arturia, Cycling 74, ROLI, Glitchmachines, Symbolic Sound, ELPHNT, Sinevibes, Bitwig, Output, Native Instruments, Blend, Reverb, and more.",
+    "projectText": "As an experienced player in the music products industry, I talked to key decisions makers in individual companies and brought them on-board for our promotions. I was able to engage participation of Arturia, Cycling 74, ROLI, Glitchmachines, Ableton, Audio Damage, Symbolic Sound, ELPHNT, Sinevibes, Bitwig, Output, Native Instruments, Blend, Reverb, and more.",
     "tools": ["My Network", "People skills"]
   },
   "Sensel Documentation": {
-    "mains": ["img/SenselDocs_00.jpg", "img/SenselDocs_01.jpg", "img/SenselDocs_02.jpg", "img/SenselDocs_03.jpg"],
+    "mains": ["img/SenselDocs_00.jpg", "img/SenselDocs_01.jpg", "img/SenselDocs_02.jpg"],
     "tile": "img/SenselDocs_tile.jpg",
     "problem": "Sensel was starting to ship the Morph product to their 2000+ Kickstarter backers. These customers had no idea how to use it, and needed documention ASAP.",
-    "solution":"Relying on my previous experience with the CHIP documentation, I setup a separate site using a static site generator 'mkdocs'. I then dug into the product and worked with the engieering team to document every use case: Music Production, Art and Drawing, Programming, Typing, and Video Editing. All content is hosted on a public git repository, allowing any user to comment and even correct on any issues.",
+    "solution":"Relying on my previous experience with documentation, I setup a separate site using a static site generator 'mkdocs'. I then dug into the product and worked with the engieering team to document every use case: Music Production, Art and Drawing, Programming, Typing, Video Editing, and API. All content is hosted on a public git repository, allowing any user to comment and even correct on any issues.",
     "projectText": "I first researched static site generators that could produce static content on a gh-pages branch for easy and reliable service. I settled on mkdocs, and setup a framework and style to match Sensel's brand. I then documented everything from the hardware to setting up the Sensel Morph controller for dozens of software titles. I created illustrations, screenshots, and photographs to clarify all setups and dimensions.",
     "tools": ["Documentation writing", "Web development", "CSS","API programming", "Knowledge of creative software suites"]
   },
@@ -32,12 +32,12 @@
     "projectText": "With Sensel, I developed several overlays to go to market. We were able to realease one: the Buchla Thunder overlay. We debuted this as a partnership with the Buchla USA synthesizer company, bringing back a futuristic design from 30 years prior. As a rare and legendary device, the original Buchla Thunder was large and imposing. We worked with Buchla to make the layout perfect on the Morph form factor, respecting history, and moving the design forward with MIDI Polyphonic Expression. On the other end of the spectrum, I adapted the Media Editing overlay to work for Pro Tools and other DAWs to reduce learning time and improve workflow for audio editors and producers. We additionally released several sound packs and presets for popular software, featuring my sound designs and compositions.",
     "tools": ["Product Design", "Prototype testing", "Market research", "Sound Design"]
   },
-  "Multi-touch Prototypes": {
-    "mains": ["img/SenselProto_00.jpg", "img/SenselProto_01.jpg", "img/SenselProto_02.jpg", "img/SenselProto_03.jpg"],
+  "Multi-touch Interaction": {
+    "mains": ["img/SenselProto_00.jpg", "img/SenselProto_01.jpg", "img/SenselProto_02.jpg", "http://www.youtube.com/v/mbv8dapqi2Y"],
     "tile": "img/SenselProto_tile.jpg",
     "problem": "The Sensel Morph had some amazing tools for getting multi-touch pressure data into a computer and Arduino. But there were no good examples and no inspirations for customers to draw from.",
     "solution":"With some key creative insights, I veered from the normal and programmed some novel control schemes for OpenGL and DMX Lighting. These simple examples were designed to be easy to follow and document, but also help inspire new innovations and enterprise growth for Sensel Technology.",
-    "projectText": "Having partnered with Cycling 74 to integrate the Sensel API into their software, I created a visual example that showed off some unique control schemes for tactile control of a 3D model. For another example, I used an Arduino and DMX sheild to create a standalone product that has never existed: a multi-touch, pressure sensitive DMX lighting controller. I showed this at the NAMM convention, garnering interest in Sensel technology from several large manufacturers.",
+    "projectText": "I worked with Cycling 74 to integrate the Sensel API into their software, then created several examples on how to use it. In one example, I created a visual example that showed off some unique control schemes for tactile control of a 3D model. For another example, I used an Arduino and DMX sheild to create a standalone product that has never existed: a multi-touch, pressure sensitive DMX lighting controller. I showed this at the NAMM convention, garnering interest in Sensel technology from several large manufacturers. Other examples included digital puppetry, syncronized audio/video generation, and unique synthesizers based on FFTs and subtractive synthesis.",
     "tools": ["Max", "OpenGL","API programming", "DMX", "Arduino IDE"]
   },
   "Video Production": {
@@ -49,15 +49,15 @@
     "tools": ["Storytelling", "Casting","Music Composition", "Project Management", "Artist Relations"]
   },
   "Music Composition and Sound Design": {
-    "mains": ["img/music_00.jpg", "img/music_01.jpg", "img/music_02.jpg"],
+    "mains": ["img/music_00.jpg", "http://www.youtube.com/v/5pvmiW4n7-4", "http://www.youtube.com/v/TAwaElmvJMM","http://www.youtube.com/v/4P_ZnPeTEeY"],
     "tile": "img/music_tile.jpg",
     "problem": "Creativity needs an outlet and craft needs practice.",
-    "solution":"Continually make music and sounds, and eventually create an end product: the album",
-    "projectText": "Veering from much of my work with synthesizers, the MIASMA album is driven by guitar sounds. Sticking close to my love of synthesizers, the guitars in MIASMA are heavily processed, often sounding like synthesizers. Soon to be released PLACE is a meditation on simple constructions of complex sounds, all performed and recored in a short amount of time in the Oregon forest.",
+    "solution":"Sound design touches everything I do. Browsing this portfolio, you'll find that sound is an essntial part of each output: background music, voiceovers, new interactions for music, and, of course, commercial sound design products.",
+    "projectText": "My recent album release, MIASMA contains many of the experiences I've worked towards with sound. Driven by guitar sounds shaped by my love of synthesizers, the guitars in MIASMA are heavily processed, often sounding like synthesizers. I also create sound designs for sharing in the public sphere as videos, sample packs, and nuanced sampler-based instruments, such as 'Techtonics' for Sensel.",
     "tools": ["Audio Engineering", "Sound Synthesis","Music Composition"]
   },
   "Evangelism and Demonstration": {
-    "mains": ["img/productDemo_00.jpg", "img/productDemo_01.jpg", "img/productDemo_02.jpg", "img/productDemo_03.jpg"],
+    "mains": ["img/productDemo_00.jpg", "img/productDemo_01.jpg", "img/productDemo_02.jpg", "http://www.youtube.com/v/h6IpVn7ebmY"],
     "tile": "img/productDemo_tile.jpg",
     "problem": "People need to know about the Sensel Morph and see it in person.",
     "solution":"With long form, in person demonstrations, perforamnces and discussion, I presented Sensel (and Livid) products to audiences at SF Conservatory of Music, MIDI Manufactures Association, Decibel Festival, Rhode Island School of Design, Berklee College of Music, Cycling 74's Expo 74, NIME Conference, and more.",

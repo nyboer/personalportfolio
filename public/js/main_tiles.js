@@ -13,6 +13,8 @@ $.getJSON('js/projects.json', function(p) {
     console.log('projects loaded');
     setupProjects();
     renderProjectsRow();
+    $('.js-lazyYT').lazyYT();
+    console.log('READY');
     //renderProject(projectnames[0]);
     //$('#project_0').trigger('click');
   })
@@ -54,20 +56,23 @@ function renderProjectsRow() {
   if(!isEmpty(proj)){
     //first clear the projects div
     $('#tiles').empty();
+    $('#hiddenvideo').empty();
     //now fill it up
     var i=0;
     for (i in projToRender){
       var ptitle = projToRender[i];
-      var tileimg = proj[ptitle]["tile"]
+      var tileimg = proj[ptitle]["tile"];
+      var mainimgs = proj[ptitle]["mains"];
+
       console.log(ptitle+' , '+tileimg)
-      var somehtml = '<div class="project-block col-sm-4"><div class="panel panel-default"><div class="image-block panel-heading" style="background: url('+tileimg+') no-repeat center top;background-size:cover;"></div><div class="projpage panel-body" id="project_'+i+'"><ahref="#">'+ptitle+'</a></div></div></div>'
-      console.log(somehtml)
+      var somehtml = '<div class="project-block col-sm-4"><div class="panel panel-default"><div class="image-block panel-heading" style="background: url('+tileimg+') no-repeat center top;background-size:cover;"></div><div class="projpage panel-body" id="project_'+i+'"><a href="#">'+ptitle+'</a></div></div></div>'
+      // console.log(somehtml)
       $('#tiles').append(somehtml);
       projectnames[i]=ptitle;
       i++;
     }
   }
-//   console.log('showing projects: '+projectnames);
+   console.log('showing projects: '+projectnames);
 }
 
 var currentproject = '';
@@ -76,6 +81,7 @@ $(document).on('click','.project-block',function(e){
   labelrow = $(this).find('.projpage')
   pid = labelrow.attr('id');
   var id = pid.split("_");
+  console.log('---'+id);
   //exclude label
   if(id.length>1){
     $('.projpage').each(function(){
@@ -149,20 +155,32 @@ function renderPage() {
 
       //images
       var images = proj[currentproject]['mains'];
-      for (i in images){
-        var yout = images[i].split('youtube.com').length;
-        //first image goes into a parallax container https://github.com/pixelcog/parallax.js/
-        if(yout>1){
-          var hash = images[i].split('/').pop(); //the hash code used for the youtube URL, e.g. HGV3yV9q4Q4
-          var movhtml = '<div class="item embed-responsive embed-responsive-16by9 mainimg" id="video"><iframe id="videoframe" src="http://www.youtube.com/embed/'+hash+'?version=3&amp;enablejsapi=1"></iframe></div>';
-          $('#image_'+i).html(movhtml);
-        }else{
-          $('#image_'+i).empty();
-          //check if there's an image file - there may not be!
-          if(images[i]){
-            var imghtml = '<img src="'+images[i]+'" alt="Peter Nyboer portfolio" class="mainimg">'
-            $('#image_'+i).html(imghtml);
+      console.log("^^^^^length "+images.length);
+      if(images.length>0){
+        for (i in images){
+          var yout = images[i].split('youtube.com').length;
+          //first image goes into a parallax container https://github.com/pixelcog/parallax.js/
+          if(yout>1){
+            console.log('youtube '+yout);
+            var hash = images[i].split('/').pop(); //the hash code used for the youtube URL, e.g. HGV3yV9q4Q4
+            // var movhtml = '<div class="item embed-responsive embed-responsive-16by9 mainimg" id="video"> <iframe id="videoArea" width="350" height="250" src="https://www.youtube.com/embed/'+hash+'" frameborder="0" allowfullscreen></iframe></div>';
+            var movhtml = '<div class="item embed-responsive embed-responsive-16by9 mainimg" id="video"> <div class="js-lazyYT" data-youtube-id="'+hash+'" data-ratio="16:9"></div> </div>';
+            $('#image_'+i).html(movhtml);
+            $('.js-lazyYT').lazyYT();
+          }else{
+            $('#image_'+i).empty();
+            //check if there's an image file - there may not be!
+            if(images[i]){
+              console.log('youtube '+images[i]);
+              var imghtml = '<img src="'+images[i]+'" alt="Peter Nyboer portfolio" class="mainimg">'
+              $('#image_'+i).html(imghtml);
+            }
           }
+        }
+      } else {
+        for(var i=0;i<5;i++){
+          $('#image_'+i).empty();
+          console.log('empty '+i);
         }
       }
       window.scroll(0,0)
