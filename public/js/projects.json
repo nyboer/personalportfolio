@@ -9,7 +9,7 @@
   },
 
   "Spatial Audio": {
-    "mains": ["img/spatial_00.jpg", "img/spatial_01.jpg", "img/spatial_02.jpg", "https://youtu.be/bLO-m4ikWYM"],
+    "mains": ["img/spatial_00.jpg", "img/spatial_01.jpg", "img/spatial_02.jpg", "https://www.youtube.com/v/bLO-m4ikWYM"],
     "tile": "img/spatial_title.jpg",
     "problem": "Audio surrounds us, however, it is traditionally modelled on the experience of a theater. Working with spatial audio creates the possibility of creating an environment, rather than a presentation.",
     "solution":"I have worked with and alongside spatial audio systems at a variety of stops in my life. In 1999, I first worked with Recombinant Media's 16 channel system to synchronize four channels of independent video for both real-time interaction and fixed playback to DAT machines. I have also gone very lo-fi, creating an eight channel sound system from discarded computer speakers and an old lawn chair for a street art performance. While at Next Thing Co, I used their SOC computers created a networked, multichannel synthesizer, with each speaker paired with an inexpensive computer.",
