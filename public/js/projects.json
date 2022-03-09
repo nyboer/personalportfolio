@@ -8,6 +8,14 @@
     "tools": ""
   },
 
+  "Spatial Audio": {
+    "mains": ["img/spatial_00.jpg", "img/spatial_01.jpg", "img/spatial_02.jpg", "https://youtu.be/bLO-m4ikWYM"],
+    "tile": "img/spatial_title.jpg",
+    "problem": "Audio surrounds us, however, it is traditionally modelled on the experience of a theater. Working with spatial audio creates the possibility of creating an environment, rather than a presentation.",
+    "solution":"I have worked with and alongside spatial audio systems at a variety of stops in my life. In 1999, I first worked with Recombinant Media's 16 channel system to synchronize four channels of independent video for both real-time interaction and fixed playback to DAT machines. I have also gone very lo-fi, creating an eight channel sound system from discarded computer speakers and an old lawn chair for a street art performance. While at Next Thing Co, I used their SOC computers created a networked, multichannel synthesizer, with each speaker paired with an inexpensive computer.",
+    "projectText": "More recently, I created a tool with the Sensel Morph to easily pan quadraphonic audio in Bitwig Studio, adapt the Sensel Morph for Ambisonic panning at the Envelop system in San Francisco, and created a quadraphobnic installation for Sensel for their CES booth in 2020. I have a quadraphonic system in my studio, and am planning some local concerts to present in a simple, spsatial environment.",
+    "tools": ["Abelton Live", "Max", "Jitter and Nato55(!)", "Bitwig Studio", "PD", "OSC/MIDI"]
+  },
   "Marketing Partnerships": {
     "mains": ["img/ccmarketing_00.jpg", "img/ccmarketing_01.jpg", "img/ccmarketing_03.jpg", "http://www.youtube.com/v/FjK_Z9L3z7A"],
     "tile": "img/partners_title.jpg",
